@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TDH8HGQVY6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-TDH8HGQVY6');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Andrew Holness - Entrepreneur, Web Designer, AI Automation Expert, and Blockchain Developer based in Montreal. Building the future of business.">
+    <meta name="keywords" content="Andrew Holness, Web Design, AI Automation, Blockchain Developer, MoonMedia Creative, Montreal Web Designer, Landing Block">
+    <meta name="author" content="Andrew Holness">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Andrew Holness | Entrepreneur & Digital Innovator">
+    <meta property="og:description" content="I create and scale digital solutions that empower businesses to grow, automate, and absolutely dominate their online presence.">
+    <meta property="og:type" content="website">
+
+    <title>Andrew Holness - Digital Ecosystem</title>
+    
+    <!-- Resource Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        jgreen: '#009b3a', 
+                        jgold: '#fed100',  
+                        jblack: '#111111', 
+                    },
+                    fontFamily: {
+                        fun: ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { background: linear-gradient(180deg, rgba(254,243,199,0.5) 0%, rgba(255,255,255,1) 100%); }
+        /* SPA Routing Styles */
+        .spa-view { display: none; opacity: 0; transition: opacity 0.3s ease; }
+        .spa-view.active { display: block; opacity: 1; }
+    </style>
+</head>
+<body class="text-gray-800 font-fun min-h-screen flex flex-col overflow-x-hidden">
+
+    <!-- Universal Sticky Navbar -->
+    <nav id="navbar" class="p-6 fixed w-full z-50 top-0 left-0 transition-transform duration-300">
+        <div class="max-w-6xl mx-auto bg-white/90 backdrop-blur-md rounded-full shadow-lg px-8 py-4 flex justify-between items-center border border-gray-100">
+            <a href="#home" onclick="navigate('home')" class="text-2xl font-black text-jblack hover:scale-105 transition-transform">
+                <span class="text-jgreen">AH</span><span class="text-jgold">.</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-gray-600 font-bold">
+                <a href="#home" onclick="scrollToSection('ventures')" class="hover:text-jgreen transition-colors cursor-pointer">My Businesses</a>
+                <a href="#home" onclick="scrollToSection('about')" class="hover:text-jgreen transition-colors cursor-pointer">About Me</a>
+                <button onclick="scrollToContact()" class="bg-jgold text-jblack px-6 py-2.5 rounded-full hover:bg-yellow-400 transition transform hover:scale-105 shadow-md">Inquire Now <i class="fas fa-arrow-right ml-1"></i></button>
+            </div>
+
+            <!-- Mobile Menu Icon -->
+            <button class="md:hidden text-2xl text-jblack">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-28">
+
+        <!-- ========================================== -->
+        <!-- VIEW: HOME                                 -->
+        <!-- ========================================== -->
+        <div id="view-home" class="spa-view active">
+            <!-- Hero Section -->
+            <section class="max-w-6xl mx-auto px-6 pt-16 pb-24 text-center">
+                <div class="inline-block bg-jgreen text-white px-6 py-3 rounded-3xl font-bold text-sm md:text-base mb-8 transform -rotate-1 shadow-md max-w-2xl mx-auto leading-relaxed">
+                    👋 Hey there, I'm Andrew Holness - not the Jamaican Prime Minister <img src="https://flagcdn.com/w20/jm.png" width="20" alt="Jamaica" class="inline-block align-middle mx-1 rounded-sm border border-white/20">, but a Jamaican in Canada <img src="https://flagcdn.com/w20/ca.png" width="20" alt="Canada" class="inline-block align-middle mx-1 rounded-sm border border-white/20"> with the same name, here to build.
+                </div>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-jblack mb-6 tracking-tight leading-tight">
+                    Building the <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-jgreen to-jgold">Future of Business</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium leading-relaxed">
+                    I create and scale digital solutions that empower businesses to grow, automate, and absolutely dominate their online presence.
+                </p>
+                <button onclick="scrollToSection('ventures')" class="inline-flex items-center gap-3 bg-jblack text-white text-lg font-black px-8 py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all">
+                    See What I Do <i class="fas fa-chevron-down animate-bounce mt-1"></i>
+                </button>
+            </section>
+
+            <!-- Ventures Section -->
+            <section id="ventures" class="bg-white py-24 rounded-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)] relative z-10 border-t border-gray-100">
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-black text-jblack mb-4">My Ventures</h2>
+                        <p class="text-xl text-gray-500 font-medium">Solving modern problems through design and technology.</p>
+                    </div>
+
+                    <!-- Category 1: For Businesses -->
+                    <div class="mb-16">
+                        <h3 class="text-2xl md:text-3xl font-black text-jblack mb-8 flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-building text-jgreen"></i> For Businesses
+                        </h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- MoonMedia -->
+                            <div class="bg-purple-700 text-white p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
+                                <div class="absolute -right-6 -top-6 text-white/20 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-paint-roller"></i></div>
+                                <div class="relative z-10 flex-grow">
+                                    <span class="bg-white text-purple-700 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow">Digital Design Agency</span>
+                                    <h3 class="text-3xl font-black mb-4">MoonMedia Creative</h3>
+                                    <p class="font-medium mb-8 text-purple-100 text-lg">Web design, maintenance, graphics, and social media magic to make your brand shine online.</p>
+                                </div>
+                                <a href="https://moonmediacreative.info" target="_blank" class="block text-center bg-jblack text-white w-full py-4 rounded-xl font-bold hover:bg-gray-800 transition relative z-10 mt-auto">
+                                    Visit Site <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- yourAIoffice -->
+                            <div class="bg-jgold text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
+                                <div class="absolute -right-6 -top-6 text-black/10 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-robot"></i></div>
+                                <div class="relative z-10 flex-grow">
+                                    <span class="bg-jblack text-jgold font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow">AI Automation Solutions</span>
+                                    <h3 class="text-3xl font-black mb-4">yourAIoffice.ca</h3>
+                                    <p class="font-medium mb-8 text-gray-800 text-lg">Automating your boring office tasks with cool AI technology so you can focus on growth.</p>
+                                </div>
+                                <a href="https://youraioffice.ca" target="_blank" class="block text-center bg-jblack text-white w-full py-4 rounded-xl font-bold hover:bg-gray-800 transition relative z-10 mt-auto">
+                                    Visit Site <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+
+                            <!-- Landing Block -->
+                            <div class="bg-gray-900 text-white p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
+                                <div class="absolute -right-6 -top-6 text-white/5 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-cubes"></i></div>
+                                <div class="relative z-10 flex-grow">
+                                    <span class="bg-jgreen text-white font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow">Web3 Development Agency</span>
+                                    <h3 class="text-3xl font-black mb-4">Landing Block</h3>
+                                    <p class="font-medium mb-8 text-gray-400 text-lg">Comprehensive cryptocurrency solutions - from multi-chain token creation to complex, secure blockchain development.</p>
+                                </div>
+                                <button onclick="navigate('blockchain')" class="block text-center bg-jgreen text-white w-full py-4 rounded-xl font-bold hover:bg-green-600 transition relative z-10 mt-auto">
+                                    Explore Solutions <i class="fas fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Category 2: For Professionals -->
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-black text-jblack mb-8 flex items-center justify-center md:justify-start gap-3">
+                            <i class="fas fa-user-tie text-jgold"></i> For Individuals/Professionals
+                        </h3>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <!-- CV Generation -->
+                            <div class="bg-jblack text-white p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
+                                <div class="absolute -right-6 -top-6 text-white/5 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-file-signature"></i></div>
+                                <div class="relative z-10 flex-grow">
+                                    <span class="bg-white text-jblack font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow">Career Growth Services</span>
+                                    <h3 class="text-2xl md:text-3xl font-black mb-4">CV Generation & Rejuvenation</h3>
+                                    <p class="font-medium mb-8 text-gray-400 text-lg">Making your CV sparkle to help you effortlessly land your dream job. Stand out from the stack.</p>
+                                </div>
+                                <button onclick="navigate('cv')" class="block text-center bg-white text-jblack w-full py-4 rounded-xl font-bold hover:bg-gray-200 transition relative z-10 mt-auto">
+                                    View Services <i class="fas fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+                            
+                            <!-- Launchpad -->
+                            <div class="bg-white text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col border border-gray-100">
+                                <div class="absolute -right-6 -top-6 text-gray-50 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-rocket"></i></div>
+                                <div class="relative z-10 flex-grow">
+                                    <span class="bg-green-50 text-jgreen font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow-sm">Business in a Box</span>
+                                    <h3 class="text-2xl md:text-3xl font-black mb-4">Zero-to-Consultant Launchpad</h3>
+                                    <p class="font-medium mb-8 text-gray-500 text-lg">Transitioning from corporate to consulting? Get a custom domain, professional email, landing page, and integrated booking link to look legitimate from day one.</p>
+                                </div>
+                                <button onclick="navigate('launchpad')" class="block text-center bg-gray-100 text-gray-800 w-full py-4 rounded-xl font-bold hover:bg-jgreen hover:text-white transition relative z-10 mt-auto">
+                                    Launch Now <i class="fas fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+
+                            <!-- Digital Footprint Polish -->
+                            <div class="bg-yellow-50 text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col border border-yellow-100">
+                                <div class="absolute -right-6 -top-6 text-yellow-200/50 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-fingerprint"></i></div>
+                                <div class="relative z-10 flex-grow">
+                                    <span class="bg-white text-jgold font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow-sm">Personal SEO</span>
+                                    <h3 class="text-2xl md:text-3xl font-black mb-4">Digital Footprint Polish</h3>
+                                    <p class="font-medium mb-8 text-gray-600 text-lg">Control what hiring managers see when they Google your name. I will optimize your LinkedIn, build a micro-site, and ensure your search results look flawless.</p>
+                                </div>
+                                <button onclick="navigate('footprint')" class="block text-center bg-white text-jblack w-full py-4 rounded-xl font-bold hover:bg-jgold transition relative z-10 mt-auto">
+                                    Clean Up Your Image <i class="fas fa-arrow-right ml-1"></i>
+                                </button>
+                            </div>
+
+                            <!-- Crypto Futures Blueprint -->
+                            <div class="bg-green-50 text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col border border-green-100 lg:col-start-2">
+                                <div class="absolute -right-6 -top-6 text-green-200/50 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-chart-line"></i></div>
+                                <div class="relative z-10 flex-grow">
+                                    <span class="bg-white text-jgreen font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow-sm">Trading Education</span>
+                                    <h3 class="text-2xl md:text-3xl font-black mb-4">Crypto Futures Blueprint</h3>
+                                    <p class="font-medium mb-8 text-gray-600 text-lg">Master cryptocurrency leverage trading. Learn how to read the markets, manage risk, and execute profitable trades through our comprehensive educational platform.</p>
+                                </div>
+                                <a href="https://www.cryptofuturesblueprint.com" target="_blank" class="block text-center bg-white text-jblack w-full py-4 rounded-xl font-bold hover:bg-jgreen hover:text-white transition relative z-10 mt-auto">
+                                    Start Learning <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section id="about" class="py-24 px-6 relative z-0">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16 max-w-4xl mx-auto">
+                        <div class="w-20 h-20 bg-jgold rounded-full mx-auto mb-8 flex items-center justify-center text-4xl shadow-lg transform rotate-12">👨🏽‍💻</div>
+                        <h2 class="text-4xl md:text-5xl font-black mb-8 text-jblack">A Bit About Me</h2>
+                        <p class="text-xl text-gray-600 font-medium leading-relaxed mb-6">
+                            Web Designer by day, Future Thinker & Digital Developer all the time. Whether you're an enterprise scaling operations or a professional advancing your career, <strong class="text-jblack text-2xl block mt-2">presentation, efficiency, and digital innovation are everything.</strong>
+                        </p>
+                        <p class="text-lg text-gray-500 font-medium leading-relaxed mb-6">
+                            Through my ventures, I blend premium web design with cutting-edge technology to engineer solutions that rank higher and convert faster. From high-performance Next.js architectures and robust SEO optimization to AI automation and Web3 platforms, I build digital assets that help brands dominate their industry.
+                        </p>
+                        <p class="text-lg text-gray-500 font-medium leading-relaxed bg-white p-6 rounded-2xl shadow-sm border border-gray-100 inline-block text-left relative before:absolute before:left-0 before:top-0 before:h-full before:w-2 before:bg-jgreen before:rounded-l-2xl">
+                            <i class="fas fa-map-marker-alt text-jgreen mr-3 text-xl float-left mt-1"></i>
+                            Based in the beautiful and vibrant tech hub of <strong>Montreal, Quebec, Canada</strong>, I draw inspiration from my city's rich creative and technological energy. But my reach is truly global—I collaborate seamlessly with businesses and professionals all over the world, providing world-class remote solutions regardless of borders or time zones.
+                        </p>
+                    </div>
+
+                    <!-- Experience Timeline & Skills -->
+                    <div class="grid md:grid-cols-2 gap-12 mt-16 items-start">
+                        <!-- Experience -->
+                        <div>
+                            <h3 class="text-2xl font-black text-jblack mb-8 flex items-center gap-3"><i class="fas fa-route text-jgreen"></i> My Journey</h3>
+                            
+                            <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-jgreen before:via-gray-200 before:to-transparent">
+                                
+                                <!-- Role 1 -->
+                                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-jgold text-jblack shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                                        <i class="fas fa-rocket text-sm"></i>
+                                    </div>
+                                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl shadow-lg border border-gray-100 transform transition-transform hover:-translate-y-1 hover:shadow-xl">
+                                        <div class="flex flex-col mb-2">
+                                            <time class="font-bold text-jgreen text-xs uppercase tracking-wider mb-1">Oct 2022 - Present</time>
+                                            <div class="font-black text-xl text-jblack">Founder & Website Designer</div>
+                                        </div>
+                                        <div class="text-sm font-bold text-gray-500 mb-3">MoonMedia Creative & yourAIoffice.ca</div>
+                                        <p class="text-gray-600 text-sm font-medium leading-relaxed">Designing and developing modern, scalable websites (Next.js, HTML, JS) for businesses and Web3 projects, while bringing AI automation to the modern workspace.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Role 2 -->
+                                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-gray-200 text-gray-600 shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                                        <i class="fas fa-store text-sm"></i>
+                                    </div>
+                                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl shadow-sm border border-gray-100 transform transition-transform hover:-translate-y-1 hover:shadow-md">
+                                        <div class="flex flex-col mb-2">
+                                            <time class="font-bold text-gray-400 text-xs uppercase tracking-wider mb-1">Sep 2019 - Apr 2022</time>
+                                            <div class="font-black text-xl text-gray-700">Independent Business Owner</div>
+                                        </div>
+                                        <div class="text-sm font-bold text-gray-500 mb-3">Ivy's Locker - Toys For Less</div>
+                                        <p class="text-gray-500 text-sm font-medium leading-relaxed">Operated an independent business in the Greater Montreal area, managing operations, sales, and client satisfaction.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Role 3 -->
+                                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-gray-200 text-gray-600 shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                                        <i class="fas fa-industry text-sm"></i>
+                                    </div>
+                                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl shadow-sm border border-gray-100 transform transition-transform hover:-translate-y-1 hover:shadow-md">
+                                        <div class="flex flex-col mb-2">
+                                            <time class="font-bold text-gray-400 text-xs uppercase tracking-wider mb-1">Jan 2018 - Feb 2020</time>
+                                            <div class="font-black text-xl text-gray-700">Production Supervisor</div>
+                                        </div>
+                                        <div class="text-sm font-bold text-gray-500 mb-3">Beast Group Inc.</div>
+                                        <p class="text-gray-500 text-sm font-medium leading-relaxed">Supervised production operations in Montreal, ensuring process efficiency and team coordination.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Role 4 -->
+                                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                                    <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-white bg-gray-200 text-gray-600 shadow-md shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                                        <i class="fas fa-bug text-sm"></i>
+                                    </div>
+                                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] bg-white p-6 rounded-2xl shadow-sm border border-gray-100 transform transition-transform hover:-translate-y-1 hover:shadow-md">
+                                        <div class="flex flex-col mb-2">
+                                            <time class="font-bold text-gray-400 text-xs uppercase tracking-wider mb-1">Jun 2017 - Aug 2017</time>
+                                            <div class="font-black text-xl text-gray-700">QA Specialist</div>
+                                        </div>
+                                        <div class="text-sm font-bold text-gray-500 mb-3">Bug-Tracker</div>
+                                        <p class="text-gray-500 text-sm font-medium leading-relaxed">Executed quality assurance protocols to ensure software integrity and seamless user experiences.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Skills & Additional Info -->
+                        <div>
+                            <h3 class="text-2xl font-black text-jblack mb-8 flex items-center gap-3"><i class="fas fa-bolt text-jgold"></i> My Superpowers</h3>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-jblack text-white px-5 py-2.5 rounded-full text-sm font-black shadow-md hover:-translate-y-1 transition-transform cursor-default">Web Design & Dev</span>
+                                <span class="bg-white border-2 border-gray-100 text-gray-700 px-5 py-2.5 rounded-full text-sm font-black shadow-sm hover:border-jgreen hover:text-jgreen transition-colors cursor-default">Next.js & React</span>
+                                <span class="bg-jgreen text-white px-5 py-2.5 rounded-full text-sm font-black shadow-md hover:-translate-y-1 transition-transform cursor-default">Web3 & Crypto</span>
+                                <span class="bg-white border-2 border-gray-100 text-gray-700 px-5 py-2.5 rounded-full text-sm font-black shadow-sm hover:border-jgold hover:text-jgold transition-colors cursor-default">UX Design</span>
+                                <span class="bg-white border-2 border-gray-100 text-gray-700 px-5 py-2.5 rounded-full text-sm font-black shadow-sm hover:border-jgreen hover:text-jgreen transition-colors cursor-default">SEO Optimization</span>
+                                <span class="bg-jgold text-jblack px-5 py-2.5 rounded-full text-sm font-black shadow-md hover:-translate-y-1 transition-transform cursor-default">AI Automation</span>
+                                <span class="bg-white border-2 border-gray-100 text-gray-700 px-5 py-2.5 rounded-full text-sm font-black shadow-sm hover:border-jblack transition-colors cursor-default">CMS (Shopify/Wix)</span>
+                                <span class="bg-white border-2 border-gray-100 text-gray-700 px-5 py-2.5 rounded-full text-sm font-black shadow-sm hover:border-jblack transition-colors cursor-default">Video Editing</span>
+                            </div>
+                            
+                            <!-- Mini Bio Callout -->
+                            <div class="mt-10 bg-green-50 rounded-3xl p-8 border-2 border-green-100 shadow-inner relative overflow-hidden group">
+                                <div class="absolute -right-4 -bottom-4 text-green-200 text-7xl transform rotate-12 group-hover:scale-110 transition-transform"><i class="fas fa-book-open"></i></div>
+                                <h4 class="font-black text-2xl text-jgreen mb-3 relative z-10">Always Learning 📚</h4>
+                                <p class="text-base text-gray-600 font-medium relative z-10">
+                                    The digital landscape moves fast, and so do I. I'm constantly exploring new tools and technologies to bring the most innovative solutions to my clients and my own businesses.
+                                </p>
+                            </div>
+
+                            <!-- The Digital Edge Block -->
+                            <div class="mt-8 bg-jblack text-white rounded-3xl p-8 border border-gray-800 shadow-xl relative overflow-hidden group">
+                                <div class="absolute -right-4 -top-4 text-gray-800 text-7xl transform -rotate-12 group-hover:scale-110 transition-transform"><i class="fas fa-code-branch"></i></div>
+                                <h4 class="font-black text-2xl mb-3 relative z-10 text-jgold">The Digital Edge ⚡</h4>
+                                <p class="text-base text-gray-400 font-medium relative z-10 mb-6">
+                                    In today's market, having a website isn't enough. You need digital systems that convert, automate, and scale. That's exactly what I engineer.
+                                </p>
+                                <div class="flex flex-col gap-3 relative z-10">
+                                    <div class="flex items-center gap-3"><i class="fas fa-check-circle text-jgreen text-lg"></i> <span class="font-bold text-sm text-gray-200">Lightning-Fast Web Apps</span></div>
+                                    <div class="flex items-center gap-3"><i class="fas fa-check-circle text-jgreen text-lg"></i> <span class="font-bold text-sm text-gray-200">Automated AI Workflows</span></div>
+                                    <div class="flex items-center gap-3"><i class="fas fa-check-circle text-jgreen text-lg"></i> <span class="font-bold text-sm text-gray-200">Data-Driven SEO Authority</span></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Home Footer / Contact -->
+            <footer class="bg-jblack text-white py-20 text-center rounded-t-[3rem] relative z-20">
+                <div class="max-w-4xl mx-auto px-6">
+                    <h2 class="text-4xl md:text-5xl font-black mb-6">Let's do something awesome.</h2>
+                    <p class="text-xl text-gray-400 mb-10 font-medium">Got a project in mind, or just want to chat about AI and design? Drop me a line below.</p>
+                    
+                    <form action="https://api.web3forms.com/submit" method="POST" class="max-w-lg mx-auto mb-16 text-left space-y-5">
+                        <input type="hidden" name="access_key" value="291222fd-103b-44ce-aef4-a1b1b28d9f82">
+                        <input type="hidden" name="subject" value="New Contact Form Submission from andrewholness.ca">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label for="home-name" class="block text-sm font-bold text-gray-400 mb-2">Name</label>
+                                <input type="text" name="name" id="home-name" required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-jgold transition-all">
+                            </div>
+                            <div>
+                                <label for="home-email" class="block text-sm font-bold text-gray-400 mb-2">Email</label>
+                                <input type="email" name="email" id="home-email" required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-jgold transition-all">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="home-interest" class="block text-sm font-bold text-gray-400 mb-2">Service of Interest</label>
+                            <select name="interest" id="home-interest" class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-jgold transition-all cursor-pointer">
+                                <option value="General Inquiry">General Inquiry / Other</option>
+                                <option value="Web Design / MoonMedia">Web Design (MoonMedia)</option>
+                                <option value="AI Automation / yourAIoffice">AI Automation (yourAIoffice)</option>
+                                <option value="Web3 / Landing Block">Web3 & Blockchain (Landing Block)</option>
+                                <option value="CV Services">CV Generation & Rejuvenation</option>
+                                <option value="Launchpad">Zero-to-Consultant Launchpad</option>
+                                <option value="Footprint Polish">Digital Footprint Polish</option>
+                                <option value="Crypto Trading">Crypto Futures Blueprint</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="home-message" class="block text-sm font-bold text-gray-400 mb-2">Message</label>
+                            <textarea name="message" id="home-message" rows="4" required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-jgold transition-all resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-white text-jblack text-xl font-black px-10 py-4 rounded-xl shadow-lg hover:bg-jgold transition-all flex items-center justify-center gap-2">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="flex justify-center gap-6 mb-12">
+                        <a href="#" aria-label="LinkedIn" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-xl hover:bg-jgreen hover:-translate-y-1 transition-all"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Twitter" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-xl hover:bg-jgold hover:text-jblack hover:-translate-y-1 transition-all"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#" aria-label="Instagram" class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-xl hover:bg-white hover:text-jblack hover:-translate-y-1 transition-all"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                    </div>
+
+                    <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 font-bold text-sm">
+                        <p>&copy; 2026 Andrew Holness. All Rights Reserved.</p>
+                        <div class="flex gap-4 mt-4 md:mt-0">
+                            <a href="#home" onclick="scrollToSection('ventures')" class="hover:text-white transition-colors cursor-pointer">Ventures</a>
+                            <span>•</span>
+                            <a href="#home" onclick="scrollToSection('about')" class="hover:text-white transition-colors cursor-pointer">About</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW: CV SERVICES                          -->
+        <!-- ========================================== -->
+        <div id="view-cv" class="spa-view">
+            <!-- Hero -->
+            <section class="max-w-5xl mx-auto px-6 pb-20 pt-10 text-center">
+                <div class="inline-block bg-green-100 text-jgreen px-5 py-2.5 rounded-full font-bold text-sm mb-8 transform -rotate-2 shadow-sm">📄 Stand Out from the Stack</div>
+                <h1 class="text-5xl md:text-7xl font-black text-jblack mb-6">Make Your CV <span class="text-transparent bg-clip-text bg-gradient-to-r from-jgreen to-jgold">Sparkle.</span></h1>
+                <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium">I optimize, format, and rejuvenate your professional history to bypass ATS algorithms and catch the eye of elite hiring managers.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="scrollToContact()" class="inline-block bg-jblack text-white text-xl font-black px-10 py-4 rounded-full shadow-lg hover:-translate-y-1 transition-all">Rejuvenate My CV <i class="fas fa-arrow-down ml-2 animate-bounce"></i></button>
+                    <a href="#cv-process" onclick="document.getElementById('cv-process').scrollIntoView({behavior: 'smooth'})" class="inline-block border-2 border-gray-300 text-gray-700 text-xl font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition-all">See The Process</a>
+                </div>
+            </section>
+
+            <!-- The Reality Section -->
+            <section class="bg-gray-900 text-white py-24 mb-24 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-jgreen rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-y-1/2 translate-x-1/2"></div>
+                <div class="max-w-6xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-black mb-6">The Reality of Modern Hiring</h2>
+                        <p class="text-xl text-gray-400 font-medium mb-6">You might be the absolute perfect fit for the job, but if your CV doesn't speak the language of modern recruitment, you will never get the interview.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="bg-red-500/20 text-red-400 p-2 rounded-lg mt-1"><i class="fas fa-robot"></i></div>
+                                <div><strong class="text-white block">75% of CVs are rejected by ATS</strong><span class="text-gray-400 text-sm">Applicant Tracking Systems automatically filter out resumes with poor formatting or missing keywords.</span></div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="bg-jgold/20 text-jgold p-2 rounded-lg mt-1"><i class="fas fa-stopwatch"></i></div>
+                                <div><strong class="text-white block">The 7.4 Second Rule</strong><span class="text-gray-400 text-sm">That is the average time a recruiter spends looking at a resume before making a "yes/no" decision.</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 border border-gray-700 p-8 rounded-[2rem] shadow-2xl relative">
+                        <div class="absolute -left-6 -top-6 bg-jgreen text-white font-black px-4 py-2 rounded-lg shadow-lg rotate-12">The Solution</div>
+                        <h3 class="text-2xl font-black mb-4">A High-Performance Document</h3>
+                        <p class="text-gray-400 mb-6">I don't just "spell check" your resume. I completely re-engineer it. I use proven psychological formatting to guide the recruiter's eye directly to your biggest accomplishments, and technical optimization to ensure algorithms rank you at the top of the pile.</p>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-gray-900 p-4 rounded-xl text-center"><div class="text-jgreen font-black text-2xl mb-1">2x</div><div class="text-xs text-gray-500 font-bold uppercase">Interview Rate</div></div>
+                            <div class="bg-gray-900 p-4 rounded-xl text-center"><div class="text-jgold font-black text-2xl mb-1">100%</div><div class="text-xs text-gray-500 font-bold uppercase">ATS Friendly</div></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CV Features Section -->
+            <section class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8 mb-24">
+                <div class="bg-gray-50 border border-gray-200 p-8 rounded-[2rem] hover:-translate-y-2 hover:border-jgreen transition-all duration-300">
+                    <div class="text-3xl mb-4 text-jgreen"><i class="fas fa-robot"></i></div>
+                    <h3 class="text-2xl font-black mb-4">ATS Optimization</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">Most resumes never reach a human. I structure and inject the exact industry keywords needed to ensure your CV passes automated tracking systems with flying colors.</p>
+                </div>
+                <div class="bg-gray-50 border border-gray-200 p-8 rounded-[2rem] hover:-translate-y-2 hover:border-jgold transition-all duration-300">
+                    <div class="text-3xl mb-4 text-jgold"><i class="fas fa-pen-nib"></i></div>
+                    <h3 class="text-2xl font-black mb-4">Compelling Copy</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">I transform boring job duties into powerful, achievement-based bullet points that highlight your unique value proposition and make hiring managers eager to meet you.</p>
+                </div>
+                <div class="bg-gray-50 border border-gray-200 p-8 rounded-[2rem] hover:-translate-y-2 hover:border-jblack transition-all duration-300">
+                    <div class="text-3xl mb-4 text-jblack"><i class="fas fa-paint-brush"></i></div>
+                    <h3 class="text-2xl font-black mb-4">Modern Formatting</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">No more cluttered, outdated Word templates. I provide clean, modern, and highly readable designs that instantly communicate professionalism and executive presence.</p>
+                </div>
+            </section>
+
+            <!-- The Process -->
+            <section id="cv-process" class="bg-white py-24 rounded-[3rem] shadow-[0_-10px_40px_rgba(0,0,0,0.05)] relative z-10 border-t border-gray-100 mx-4 md:mx-auto max-w-7xl">
+                <div class="max-w-5xl mx-auto px-6">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-black text-jblack mb-4">How It Works</h2>
+                        <p class="text-xl text-gray-500 font-medium">A seamless, collaborative process to build your ultimate professional profile.</p>
+                    </div>
+                    <div class="space-y-8">
+                        <div class="flex flex-col md:flex-row gap-6 bg-gray-50 p-8 rounded-3xl border border-gray-100 items-center">
+                            <div class="w-16 h-16 bg-jblack text-white rounded-full flex items-center justify-center text-2xl font-black shrink-0 shadow-lg">1</div>
+                            <div>
+                                <h4 class="text-2xl font-black mb-2">The Intake</h4>
+                                <p class="text-gray-600 font-medium">You send me your current, outdated CV (or just a list of your work history if you are starting from scratch) along with a link to 2-3 jobs you are actively trying to land.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-6 bg-gray-50 p-8 rounded-3xl border border-gray-100 items-center">
+                            <div class="w-16 h-16 bg-jgold text-jblack rounded-full flex items-center justify-center text-2xl font-black shrink-0 shadow-lg">2</div>
+                            <div>
+                                <h4 class="text-2xl font-black mb-2">Strategy & Rewrite</h4>
+                                <p class="text-gray-600 font-medium">I tear down the old document. I extract the core metrics, rewrite the bullet points using the "Action-Result" framework, and strategically map keywords based on your target roles.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-6 bg-gray-50 p-8 rounded-3xl border border-gray-100 items-center">
+                            <div class="w-16 h-16 bg-jgreen text-white rounded-full flex items-center justify-center text-2xl font-black shrink-0 shadow-lg">3</div>
+                            <div>
+                                <h4 class="text-2xl font-black mb-2">Design & Formatting</h4>
+                                <p class="text-gray-600 font-medium">I place the new, high-impact copy into a clean, modern, ATS-compliant template. I ensure the typography is highly legible and the visual hierarchy guides the recruiter's eye perfectly.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-6 bg-jblack text-white p-8 rounded-3xl border border-gray-800 items-center shadow-xl transform scale-[1.02]">
+                            <div class="w-16 h-16 bg-white text-jblack rounded-full flex items-center justify-center text-2xl font-black shrink-0 shadow-lg"><i class="fas fa-check"></i></div>
+                            <div>
+                                <h4 class="text-2xl font-black mb-2 text-jgold">Delivery & Revisions</h4>
+                                <p class="text-gray-300 font-medium">You receive your pristine new CV in both PDF (for emailing/printing) and editable Word Document formats. We then do a round of revisions to ensure you are 100% confident.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="bg-gray-100 py-20 text-center rounded-t-[3rem] relative z-20 border-t border-gray-200 mt-12">
+                <div class="max-w-4xl mx-auto px-6">
+                    <h2 class="text-4xl md:text-5xl font-black mb-6 text-jblack">Ready for your next big role?</h2>
+                    <p class="text-xl text-gray-500 mb-10 font-medium">Fill out the form below to request a quick review or to start building your CV from scratch.</p>
+                    
+                    <form action="https://api.web3forms.com/submit" method="POST" class="max-w-lg mx-auto mb-16 text-left space-y-5">
+                        <input type="hidden" name="access_key" value="291222fd-103b-44ce-aef4-a1b1b28d9f82">
+                        <input type="hidden" name="subject" value="New CV Service Inquiry">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label for="cv-name" class="block text-sm font-bold text-gray-600 mb-2">Name</label>
+                                <input type="text" name="name" id="cv-name" required class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all shadow-sm">
+                            </div>
+                            <div>
+                                <label for="cv-email" class="block text-sm font-bold text-gray-600 mb-2">Email</label>
+                                <input type="email" name="email" id="cv-email" required class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all shadow-sm">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="cv-service" class="block text-sm font-bold text-gray-600 mb-2">Which service do you need?</label>
+                            <select name="service" id="cv-service" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all shadow-sm cursor-pointer">
+                                <option value="CV Rejuvenation">CV Rejuvenation (Update existing)</option>
+                                <option value="CV Generation">CV Generation (Start from scratch)</option>
+                                <option value="LinkedIn Optimization">LinkedIn Profile Makeover</option>
+                                <option value="Cover Letter">Cover Letter Writing</option>
+                                <option value="Other">Other / Unsure</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="cv-message" class="block text-sm font-bold text-gray-600 mb-2">How can I help you?</label>
+                            <textarea name="message" id="cv-message" rows="4" required class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all shadow-sm resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-jblack text-white text-xl font-black px-10 py-4 rounded-xl shadow-lg hover:scale-[1.02] hover:bg-jgreen transition-all duration-300 flex justify-center items-center gap-2">
+                            Start the Process <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </footer>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW: LAUNCHPAD                            -->
+        <!-- ========================================== -->
+        <div id="view-launchpad" class="spa-view">
+            <!-- Hero -->
+            <section class="max-w-6xl mx-auto px-6 pb-20 pt-10 text-center">
+                <div class="inline-block bg-green-100 text-jgreen px-5 py-2.5 rounded-full font-bold text-sm mb-8 transform rotate-2 shadow-sm">🚀 Business in a Box</div>
+                <h1 class="text-5xl md:text-7xl font-black text-jblack mb-6">Launch Your Consulting Business <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-jgreen to-jgold">in Days, Not Months.</span></h1>
+                <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium">Transitioning from corporate to consulting? Don't waste weeks figuring out the tech. Get a custom domain, professional email, landing page, and integrated booking link to look legitimate from day one.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="scrollToContact()" class="inline-block bg-jgreen text-white text-xl font-black px-10 py-4 rounded-full shadow-lg hover:-translate-y-1 transition-all">Let's Build It <i class="fas fa-arrow-down ml-2 animate-bounce"></i></button>
+                    <a href="#launchpad-stack" onclick="document.getElementById('launchpad-stack').scrollIntoView({behavior: 'smooth'})" class="inline-block border-2 border-gray-300 text-gray-700 text-xl font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition-all">View Deliverables</a>
+                </div>
+            </section>
+
+            <!-- Who is this for -->
+            <section class="bg-jblack text-white py-24 mb-24 relative overflow-hidden">
+                <div class="absolute -left-48 top-0 w-96 h-96 bg-jgold rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+                <div class="max-w-6xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 md:order-1 bg-gray-900 border border-gray-800 p-10 rounded-[3rem] shadow-2xl relative">
+                        <div class="absolute -right-6 -top-6 bg-white text-jblack font-black px-4 py-2 rounded-lg shadow-lg rotate-6 text-sm">The Struggle</div>
+                        <h3 class="text-2xl font-black mb-4">The "Tech Headache"</h3>
+                        <p class="text-gray-400 mb-6 font-medium leading-relaxed">Most new consultants spend their first month fighting with WordPress, trying to figure out MX records for their email, and manually scheduling calls via Gmail. It looks unprofessional, and worse, it distracts you from actually getting clients.</p>
+                        <p class="text-gray-400 font-medium leading-relaxed">The <span class="text-jgold font-bold">Launchpad</span> entirely eliminates this phase. You hand me your branding, and I hand you back a fully functioning, automated business machine.</p>
+                    </div>
+                    <div class="order-1 md:order-2">
+                        <h2 class="text-4xl md:text-5xl font-black mb-6">Who is this for?</h2>
+                        <ul class="space-y-6">
+                            <li class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center text-jgold shrink-0"><i class="fas fa-user-tie"></i></div>
+                                <div><strong class="text-xl block">Corporate Escapees</strong><span class="text-gray-400 text-sm">Professionals pivoting their industry expertise into high-ticket consulting.</span></div>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center text-jgreen shrink-0"><i class="fas fa-chalkboard-teacher"></i></div>
+                                <div><strong class="text-xl block">Executive Coaches</strong><span class="text-gray-400 text-sm">Leaders moving into one-on-one coaching requiring seamless booking.</span></div>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gray-800 border border-gray-700 flex items-center justify-center text-blue-400 shrink-0"><i class="fas fa-laptop-house"></i></div>
+                                <div><strong class="text-xl block">Freelance Agencies</strong><span class="text-gray-400 text-sm">Solopreneurs who need to look like a fully established agency on day one.</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tech Stack / Deliverables -->
+            <section id="launchpad-stack" class="max-w-6xl mx-auto px-6 mb-24 text-center">
+                <h2 class="text-4xl md:text-5xl font-black text-jblack mb-4">The Tech Stack</h2>
+                <p class="text-xl text-gray-500 font-medium mb-12 max-w-2xl mx-auto">Everything you receive in your business box, fully configured and ready to scale.</p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl hover:-translate-y-2 transition-all group">
+                        <div class="text-4xl mb-4 text-blue-500 group-hover:scale-110 transition-transform"><i class="fab fa-google"></i></div>
+                        <h3 class="text-xl font-black mb-2">Google Workspace</h3>
+                        <p class="text-gray-600 text-sm font-medium">Setup of your custom `@yourdomain.com` email, fully authenticated to prevent spam folders.</p>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl hover:-translate-y-2 transition-all group">
+                        <div class="text-4xl mb-4 text-jblack group-hover:scale-110 transition-transform"><i class="fab fa-react"></i></div>
+                        <h3 class="text-xl font-black mb-2">Next.js Landing Page</h3>
+                        <p class="text-gray-600 text-sm font-medium">A lightning-fast, high-converting one-page website engineered to capture leads.</p>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl hover:-translate-y-2 transition-all group">
+                        <div class="text-4xl mb-4 text-blue-400 group-hover:scale-110 transition-transform"><i class="far fa-calendar-alt"></i></div>
+                        <h3 class="text-xl font-black mb-2">Calendly Sync</h3>
+                        <p class="text-gray-600 text-sm font-medium">Integrated calendar booking so clients can schedule discovery calls directly on your site.</p>
+                    </div>
+                    <div class="bg-gray-50 border border-gray-200 p-8 rounded-3xl hover:-translate-y-2 transition-all group">
+                        <div class="text-4xl mb-4 text-purple-600 group-hover:scale-110 transition-transform"><i class="fab fa-stripe"></i></div>
+                        <h3 class="text-xl font-black mb-2">Payment Links</h3>
+                        <p class="text-gray-600 text-sm font-medium">Stripe integration setup so you can send professional invoices and accept credit cards.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="bg-jblack text-white py-20 text-center rounded-t-[3rem] relative z-20 mt-12">
+                <div class="max-w-4xl mx-auto px-6">
+                    <h2 class="text-4xl md:text-5xl font-black mb-6">Ready to launch your empire?</h2>
+                    <p class="text-xl text-gray-400 mb-10 font-medium">Fill out the form below to tell me about your new consulting venture, and let's get you online.</p>
+
+                    <form action="https://api.web3forms.com/submit" method="POST" class="max-w-lg mx-auto text-left space-y-5">
+                        <input type="hidden" name="access_key" value="291222fd-103b-44ce-aef4-a1b1b28d9f82">
+                        <input type="hidden" name="subject" value="New Zero-to-Consultant Inquiry">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-400 mb-2">Name</label>
+                                <input type="text" name="name" required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-400 mb-2">Email</label>
+                                <input type="email" name="email" required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-400 mb-2">Where are you in your journey?</label>
+                            <select name="stage" class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all cursor-pointer">
+                                <option value="Just starting">Just thinking about starting</option>
+                                <option value="Ready to launch">Ready to launch my business</option>
+                                <option value="Rebranding">Rebranding an existing business</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-400 mb-2">Consulting Niche</label>
+                            <input type="text" name="business_type" required class="w-full bg-gray-900 border border-gray-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all">
+                        </div>
+                        <button type="submit" class="w-full bg-jgreen text-white text-xl font-black px-10 py-4 rounded-xl shadow-lg hover:scale-[1.02] hover:bg-green-600 transition-all flex justify-center gap-2">Start Setup <i class="fas fa-rocket"></i></button>
+                    </form>
+                </div>
+            </footer>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW: FOOTPRINT POLISH                     -->
+        <!-- ========================================== -->
+        <div id="view-footprint" class="spa-view">
+            <!-- Hero -->
+            <section class="max-w-5xl mx-auto px-6 pb-20 pt-10 text-center">
+                <div class="inline-block bg-yellow-100 text-yellow-700 px-5 py-2.5 rounded-full font-bold text-sm mb-8 transform -rotate-2 shadow-sm">🔍 Personal SEO & Branding</div>
+                <h1 class="text-5xl md:text-7xl font-black text-jblack mb-6">Own Your Name on <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-jgold to-jgreen">the Internet.</span></h1>
+                <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium">When a hiring manager or potential client Googles your name, what do they see? I will optimize your LinkedIn, build a professional micro-site, and ensure your search results look flawless.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="scrollToContact()" class="inline-block bg-jblack text-white text-xl font-black px-10 py-4 rounded-full shadow-lg hover:-translate-y-1 transition-all">Take Control <i class="fas fa-arrow-down ml-2 animate-bounce"></i></button>
+                    <a href="#footprint-details" onclick="document.getElementById('footprint-details').scrollIntoView({behavior: 'smooth'})" class="inline-block border-2 border-gray-300 text-gray-700 text-xl font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition-all">See The Breakdown</a>
+                </div>
+            </section>
+
+            <!-- The Problem Section -->
+            <section class="max-w-6xl mx-auto px-6 mb-24 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-black text-jblack mb-6">The 90% Rule</h2>
+                    <p class="text-lg text-gray-600 font-medium mb-6">Over 90% of executives, recruiters, and high-ticket clients will Google your name before extending an offer or signing a contract. Your digital footprint is your first impression.</p>
+                    <p class="text-lg text-gray-600 font-medium">If they find an outdated LinkedIn, an old embarrassing Facebook post, or worse—nothing at all—they assume you lack authority in your field. The <span class="text-jgold font-bold">Footprint Polish</span> is designed to curate exactly what they see, cementing your status as an industry leader.</p>
+                </div>
+                <div class="bg-yellow-50 rounded-3xl p-8 border border-yellow-100 relative shadow-inner">
+                    <div class="absolute -right-4 -top-4 text-yellow-200 text-6xl rotate-12"><i class="fas fa-quote-right"></i></div>
+                    <p class="text-xl text-gray-700 font-black italic mb-4">"We loved his resume, but when we Googled him, we found another professional with the same name doing amateur work. It confused the board, and we passed."</p>
+                    <div class="text-sm font-bold text-gray-500 uppercase tracking-widest">— Anonymous Tech Recruiter</div>
+                </div>
+            </section>
+
+            <!-- Breakdown -->
+            <section id="footprint-details" class="bg-jblack text-white py-24 rounded-[3rem] shadow-2xl relative z-10 mx-4 md:mx-auto max-w-7xl">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-black mb-4">The 360° Approach</h2>
+                    <p class="text-xl text-gray-400 font-medium">Complete dominance over your personal brand.</p>
+                </div>
+                <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+                    <div class="bg-gray-900 border border-gray-800 p-8 rounded-[2rem] hover:border-blue-500 transition-colors group">
+                        <div class="w-14 h-14 bg-blue-500/20 text-blue-400 rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fab fa-linkedin-in"></i></div>
+                        <h3 class="text-2xl font-black mb-4">LinkedIn Overhaul</h3>
+                        <p class="text-gray-400 font-medium leading-relaxed">I rewrite your headline for maximum search visibility, craft a compelling "About" summary, design a custom hero banner, and optimize your experience section to attract recruiters organically. We turn your profile into a landing page for your career.</p>
+                    </div>
+                    <div class="bg-gray-900 border border-gray-800 p-8 rounded-[2rem] hover:border-jgreen transition-colors group">
+                        <div class="w-14 h-14 bg-jgreen/20 text-jgreen rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-id-card"></i></div>
+                        <h3 class="text-2xl font-black mb-4">Digital Micro-Site</h3>
+                        <p class="text-gray-400 font-medium leading-relaxed">I design a stunning, fast-loading personal website (e.g., yourname.com) that acts as your central hub. It hosts your extended bio, your optimized CV, links to your professional achievements, and a direct contact form.</p>
+                    </div>
+                    <div class="bg-gray-900 border border-gray-800 p-8 rounded-[2rem] hover:border-jgold transition-colors group">
+                        <div class="w-14 h-14 bg-jgold/20 text-jgold rounded-xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-search"></i></div>
+                        <h3 class="text-2xl font-black mb-4">Search Indexation</h3>
+                        <p class="text-gray-400 font-medium leading-relaxed">Using technical SEO strategies, we submit your new assets to Google Search Console and build cross-links to ensure your new micro-site and LinkedIn profile rank at the absolute top of Google when someone searches your name.</p>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="bg-gray-50 py-20 text-center rounded-t-[3rem] relative z-20 mt-12 border-t border-gray-200">
+                <div class="max-w-4xl mx-auto px-6">
+                    <h2 class="text-4xl md:text-5xl font-black mb-6 text-jblack">Let's shape your narrative.</h2>
+                    <p class="text-xl text-gray-500 mb-10 font-medium">Ready to take control of your digital presence? Fill out the form below to get started on your polish.</p>
+                    <form action="https://api.web3forms.com/submit" method="POST" class="max-w-lg mx-auto text-left space-y-5">
+                        <input type="hidden" name="access_key" value="291222fd-103b-44ce-aef4-a1b1b28d9f82">
+                        <input type="hidden" name="subject" value="New Footprint Polish Inquiry">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div><label class="block text-sm font-bold text-gray-600 mb-2">Name</label><input type="text" name="name" required class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgold focus:ring-1 focus:ring-jgold transition-all shadow-sm"></div>
+                            <div><label class="block text-sm font-bold text-gray-600 mb-2">Email</label><input type="email" name="email" required class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgold focus:ring-1 focus:ring-jgold transition-all shadow-sm"></div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-600 mb-2">What's your primary focus?</label>
+                            <select name="package" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgold focus:ring-1 focus:ring-jgold transition-all shadow-sm cursor-pointer">
+                                <option value="Full Digital Polish">Complete Digital Polish (LinkedIn + Site + SEO)</option>
+                                <option value="LinkedIn Only">LinkedIn Overhaul Only</option>
+                                <option value="Personal Micro-site">Personal Micro-Site Only</option>
+                                <option value="Google Search Cleanup">Google Search / SEO Cleanup</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-600 mb-2">Current LinkedIn URL</label>
+                            <input type="url" name="linkedin_url" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgold focus:ring-1 focus:ring-jgold transition-all shadow-sm">
+                        </div>
+                        <button type="submit" class="w-full bg-jgold text-jblack text-xl font-black px-10 py-4 rounded-xl shadow-lg hover:scale-[1.02] hover:bg-yellow-400 transition-all flex justify-center gap-2">Submit Request <i class="fas fa-check-circle"></i></button>
+                    </form>
+                </div>
+            </footer>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- VIEW: BLOCKCHAIN / LANDING BLOCK           -->
+        <!-- ========================================== -->
+        <div id="view-blockchain" class="spa-view bg-gray-900 -mt-28 pt-28 pb-10">
+            <!-- Hero -->
+            <section class="max-w-6xl mx-auto px-6 pb-20 pt-10 text-center relative z-10">
+                <div class="inline-block bg-jgold/10 border border-jgold/20 text-jgold px-5 py-2.5 rounded-full font-bold text-sm mb-6 shadow-sm"><i class="fas fa-rocket mr-2"></i> Fast-Track Service</div>
+                <h1 class="text-5xl md:text-7xl font-black text-white mb-6">Landing<span class="text-jgold">Block</span></h1>
+                <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-3xl mx-auto font-medium">From high-converting crypto landing pages to multi-page Web3 development, we build your project's home on the blockchain with expert precision.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="scrollToContact()" class="bg-jgreen text-white px-8 py-4 rounded-xl font-black text-lg hover:bg-green-600 transition-all shadow-lg shadow-jgreen/20 hover:scale-105">Get Started</button>
+                    <a href="#blockchain-pricing" onclick="document.getElementById('blockchain-pricing').scrollIntoView({behavior: 'smooth'})" class="border-2 border-gray-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transition-all">View Packages</a>
+                </div>
+            </section>
+
+            <!-- Tech Stack & Networks Deep Dive -->
+            <section class="border-y border-gray-800 bg-gray-900/50 py-16 mb-24 relative z-10">
+                <div class="max-w-6xl mx-auto px-6">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-3xl font-black text-white mb-4">The Web3 Tech Stack</h2>
+                            <p class="text-gray-400 mb-6 font-medium">We don't just build pretty landing pages. We build robust, secure, and highly functional Web3 integrations. Whether you need a simple tokenomics display or a complex dApp interface to connect wallets and mint tokens, we have the stack to support it.</p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-lg text-sm font-bold border border-gray-700">React / Next.js</span>
+                                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-lg text-sm font-bold border border-gray-700">Ethers.js & Web3.js</span>
+                                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-lg text-sm font-bold border border-gray-700">WalletConnect</span>
+                                <span class="bg-gray-800 text-gray-300 px-4 py-2 rounded-lg text-sm font-bold border border-gray-700">TailwindCSS</span>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-gray-500 font-bold text-sm uppercase tracking-widest mb-6">Building across all major networks</p>
+                            <div class="flex flex-col gap-4">
+                                <div class="bg-gray-800 border border-gray-700 px-8 py-4 rounded-2xl flex items-center justify-between shadow-lg hover:border-blue-500 transition-colors cursor-default group">
+                                    <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform"><i class="fab fa-ethereum"></i></div><span class="font-bold text-white text-lg">Ethereum (ERC-20)</span></div>
+                                    <i class="fas fa-check text-blue-400 opacity-50"></i>
+                                </div>
+                                <div class="bg-gray-800 border border-gray-700 px-8 py-4 rounded-2xl flex items-center justify-between shadow-lg hover:border-yellow-500 transition-colors cursor-default group">
+                                    <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-yellow-500/20 text-yellow-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform"><i class="fas fa-cube"></i></div><span class="font-bold text-white text-lg">Binance Smart Chain</span></div>
+                                    <i class="fas fa-check text-yellow-400 opacity-50"></i>
+                                </div>
+                                <div class="bg-gray-800 border border-gray-700 px-8 py-4 rounded-2xl flex items-center justify-between shadow-lg hover:border-green-500 transition-colors cursor-default group">
+                                    <div class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform"><i class="fas fa-bolt"></i></div><span class="font-bold text-white text-lg">Solana (SPL)</span></div>
+                                    <i class="fas fa-check text-green-400 opacity-50"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features -->
+            <section class="max-w-6xl mx-auto px-6 mb-24 grid md:grid-cols-3 gap-8 text-center">
+                <div class="bg-gray-800 border border-gray-700 p-8 rounded-[2rem] hover:-translate-y-2 hover:border-jgold transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-jgold/10 text-jgold rounded-xl flex items-center justify-center text-2xl mx-auto mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-bolt"></i></div>
+                    <h3 class="text-2xl font-black mb-3 text-white">24-Hour Web3 Delivery</h3>
+                    <p class="text-gray-400 font-medium leading-relaxed">Get your high-quality crypto landing page live in just one day. Perfect for time-sensitive IDO launches, sudden hype cycles, and token presales.</p>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 p-8 rounded-[2rem] hover:-translate-y-2 hover:border-jgreen transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-jgreen/10 text-jgreen rounded-xl flex items-center justify-center text-2xl mx-auto mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-chart-line"></i></div>
+                    <h3 class="text-2xl font-black mb-3 text-white">Conversion Optimized</h3>
+                    <p class="text-gray-400 font-medium leading-relaxed">Designed to convert casual visitors into active investors using proven crypto-specific layouts, smart contract integration UI, and clear Calls to Action.</p>
+                </div>
+                <div class="bg-gray-800 border border-gray-700 p-8 rounded-[2rem] hover:-translate-y-2 hover:border-jgold transition-all duration-300 group">
+                    <div class="w-14 h-14 bg-jgold/10 text-jgold rounded-xl flex items-center justify-center text-2xl mx-auto mb-6 group-hover:scale-110 transition-transform"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="text-2xl font-black mb-3 text-white">Mobile First dApp Design</h3>
+                    <p class="text-gray-400 font-medium leading-relaxed">Fully responsive blockchain websites that look and function perfectly on all devices—where over 70% of DeFi and crypto investors actively browse.</p>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section id="blockchain-pricing" class="py-20 px-4 md:px-8 bg-gray-900/50 border-y border-gray-800 mb-24">
+                <div class="max-w-6xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-4xl md:text-5xl font-black text-white mb-4">Choose Your Web3 Package</h2>
+                        <p class="text-gray-400 text-lg font-medium">Transparent pricing for blockchain projects of all sizes.</p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Basic Package -->
+                        <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700 flex flex-col hover:border-gray-500 transition-all">
+                            <div class="px-8 py-8">
+                                <h3 class="text-2xl font-black text-white">Block Basic</h3>
+                                <p class="text-gray-400 mb-4 font-medium">For new token projects</p>
+                                <div class="mb-6">
+                                    <span class="text-5xl font-black text-white">$150</span><span class="text-gray-400"> / one-time</span>
+                                </div>
+                            </div>
+                            <div class="px-8 pt-0 pb-8 flex-grow">
+                                <ul class="space-y-4 font-bold text-gray-300 text-sm">
+                                    <li class="flex items-center"><i class="fas fa-check text-jgreen mr-3"></i> 1-Page Website</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgreen mr-3"></i> 24-Hour Delivery</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgreen mr-3"></i> Mobile Responsive</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgreen mr-3"></i> 3 Custom Images</li>
+                                    <li class="flex items-center text-gray-500"><i class="fas fa-times text-red-400 mr-3"></i> Hosting & Domain Not Included</li>
+                                    <li class="flex items-center text-gray-500"><i class="fas fa-times text-red-400 mr-3"></i> No Token Integration</li>
+                                </ul>
+                            </div>
+                            <div class="p-8 bg-gray-800/50 mt-auto">
+                                <button onclick="scrollToContact()" class="w-full bg-gray-700 hover:bg-gray-600 text-white text-center py-3 rounded-lg font-bold transition-all">Get Started</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Pro Package (Popular) -->
+                        <div class="bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border-2 border-jgold flex flex-col transform md:-translate-y-4 relative">
+                            <div class="absolute top-0 right-0 bg-jgold text-jblack text-xs font-black px-4 py-2 rounded-bl-2xl uppercase tracking-wider shadow-sm">Popular</div>
+                            <div class="px-8 py-8 bg-jgold/5">
+                                <h3 class="text-2xl font-black text-white">Block Pro</h3>
+                                <p class="text-jgold mb-4 font-medium">Best for serious projects</p>
+                                <div class="mb-6">
+                                    <span class="text-5xl font-black text-white">$499</span><span class="text-gray-400"> / one-time</span>
+                                </div>
+                            </div>
+                            <div class="px-8 pt-0 pb-8 flex-grow bg-jgold/5 border-t border-jgold/20">
+                                <ul class="space-y-4 font-bold text-gray-300 text-sm mt-8">
+                                    <li class="flex items-center"><i class="fas fa-check text-jgold mr-3"></i> 3-Page Website</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgold mr-3"></i> 48-Hour Delivery</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgold mr-3"></i> Token Integration (Price, Supply)</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgold mr-3"></i> 7 Custom Images</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgold mr-3"></i> Hosting (3 Yrs) & Domain (1 Yr)</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgold mr-3"></i> Social Media Integration</li>
+                                </ul>
+                            </div>
+                            <div class="p-8 bg-jgold/5 mt-auto">
+                                <button onclick="scrollToContact()" class="w-full bg-jgold hover:bg-yellow-400 text-jblack text-center py-3 rounded-lg font-black transition-all shadow-lg shadow-jgold/20">Get Started</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Enterprise Package -->
+                        <div class="bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-700 flex flex-col hover:border-gray-500 transition-all">
+                            <div class="px-8 py-8">
+                                <h3 class="text-2xl font-black text-white">Block Enterprise</h3>
+                                <p class="text-gray-400 mb-4 font-medium">For established dApps & DAOs</p>
+                                <div class="mb-6">
+                                    <span class="text-5xl font-black text-white">$999</span><span class="text-gray-400"> / one-time</span>
+                                </div>
+                            </div>
+                            <div class="px-8 pt-0 pb-8 flex-grow">
+                                <ul class="space-y-4 font-bold text-gray-300 text-sm">
+                                    <li class="flex items-center"><i class="fas fa-check text-jgreen mr-3"></i> 5+ Page Website (Custom)</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgreen mr-3"></i> 72-Hour Delivery</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgreen mr-3"></i> Full Token Integration</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgreen mr-3"></i> 10 Custom Images</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgreen mr-3"></i> Hosting (3 Yrs) & Domain (1 Yr)</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgreen mr-3"></i> Custom Smart Contract Calls</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-jgreen mr-3"></i> Premium Support</li>
+                                </ul>
+                            </div>
+                            <div class="p-8 bg-gray-800/50 mt-auto">
+                                <button onclick="scrollToContact()" class="w-full bg-gray-700 hover:bg-gray-600 text-white text-center py-3 rounded-lg font-bold transition-all">Get Started</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Process Section -->
+            <section class="max-w-6xl mx-auto px-6 mb-24">
+                <div class="text-center mb-12">
+                    <h3 class="text-4xl font-black text-white mb-4">How It Works</h3>
+                    <p class="text-gray-400 text-lg font-medium">Our streamlined blockchain development process ensures rapid delivery.</p>
+                </div>
+                <div class="grid md:grid-cols-4 gap-8 text-center relative before:hidden md:before:block before:absolute before:top-8 before:left-[10%] before:w-[80%] before:h-1 before:bg-gray-800 before:-z-10">
+                    <div>
+                        <div class="w-16 h-16 bg-jgreen text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 shadow-lg border-4 border-gray-900 z-10 relative">1</div>
+                        <h4 class="font-black text-white text-lg mb-2">Select Package</h4>
+                        <p class="text-gray-400 text-sm font-medium">Choose the best blockchain dev package for your project needs.</p>
+                    </div>
+                    <div>
+                        <div class="w-16 h-16 bg-jgold text-jblack rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 shadow-lg border-4 border-gray-900 z-10 relative">2</div>
+                        <h4 class="font-black text-white text-lg mb-2">Provide Details</h4>
+                        <p class="text-gray-400 text-sm font-medium">Send us your content, smart contract address, and tokenomics securely.</p>
+                    </div>
+                    <div>
+                        <div class="w-16 h-16 bg-jgreen text-white rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 shadow-lg border-4 border-gray-900 z-10 relative">3</div>
+                        <h4 class="font-black text-white text-lg mb-2">We Build It</h4>
+                        <p class="text-gray-400 text-sm font-medium">Our team works round-the-clock to design, code, and test your site.</p>
+                    </div>
+                    <div>
+                        <div class="w-16 h-16 bg-jgold text-jblack rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6 shadow-lg border-4 border-gray-900 z-10 relative">4</div>
+                        <h4 class="font-black text-white text-lg mb-2">Launch!</h4>
+                        <p class="text-gray-400 text-sm font-medium">Review, approve, and deploy. We help you go live immediately on your domain.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="max-w-6xl mx-auto px-6 mb-24">
+                <div class="text-center mb-12">
+                    <h3 class="text-4xl font-black text-white mb-4">What Founders Say</h3>
+                    <p class="text-gray-400 text-lg font-medium">Trusted by crypto founders worldwide.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 border border-gray-700 p-8 rounded-[2rem] shadow-lg">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center text-white font-black text-xl border-2 border-jgreen">MC</div>
+                            <div>
+                                <h4 class="font-black text-white text-lg">Michael Chen</h4>
+                                <p class="text-gray-400 text-sm font-medium">Founder, DeFiProtocol</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 font-medium italic mb-6">"LandingBlock delivered our landing page in just 18 hours! The quality was exceptional, the code was clean, and we saw a 35% increase in presale signups."</p>
+                        <div class="text-jgold text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+                    <div class="bg-gray-800 border border-gray-700 p-8 rounded-[2rem] shadow-lg">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 bg-gray-700 rounded-full flex items-center justify-center text-white font-black text-xl border-2 border-jgold">SJ</div>
+                            <div>
+                                <h4 class="font-black text-white text-lg">Sarah Johnson</h4>
+                                <p class="text-gray-400 text-sm font-medium">CEO, NFTCollective</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-300 font-medium italic mb-6">"We needed a website urgently for our NFT drop. The whitelist system integration was flawless. Will definitely use their Enterprise package again!"</p>
+                        <div class="text-jgold text-sm"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio -->
+            <section class="max-w-6xl mx-auto px-6 mb-24">
+                <h3 class="text-4xl font-black text-white text-center mb-12">Design Portfolio</h3>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <a href="https://moonmediacreative.info/alein" target="_blank" class="block bg-gray-800 border border-gray-700 rounded-[2rem] overflow-hidden group hover:border-jgreen">
+                        <div class="bg-gray-900"><img src="https://moonmediacreative.info/alein.jpg" class="w-full h-48 object-cover object-center opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all"></div>
+                        <div class="p-6"><h4 class="text-xl font-black text-white mb-2 flex justify-between items-center">Alein <i class="fas fa-external-link-alt text-sm text-gray-500 group-hover:text-jgreen"></i></h4><p class="text-gray-400 text-sm font-medium">Custom Web3 landing page showcasing immersive branding.</p></div>
+                    </a>
+                    <a href="https://moonmediacreative.info/yutu" target="_blank" class="block bg-gray-800 border border-gray-700 rounded-[2rem] overflow-hidden group hover:border-jgold">
+                        <div class="bg-gray-900"><img src="https://moonmediacreative.info/yutu.webp" class="w-full h-48 object-cover object-center opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all"></div>
+                        <div class="p-6"><h4 class="text-xl font-black text-white mb-2 flex justify-between items-center">Yutu <i class="fas fa-external-link-alt text-sm text-gray-500 group-hover:text-jgold"></i></h4><p class="text-gray-400 text-sm font-medium">Sleek crypto platform interface built for high conversion.</p></div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Blockchain Footer Contact -->
+            <footer class="bg-jgreen text-white py-20 text-center rounded-t-[3rem] mt-12">
+                <div class="max-w-4xl mx-auto px-6">
+                    <h2 class="text-4xl md:text-5xl font-black mb-6">Ready to launch?</h2>
+                    <p class="text-xl text-green-100 mb-10 font-medium">Whether you need a simple token landing page, or a complex dApp, detail your vision below.</p>
+                    
+                    <form action="https://api.web3forms.com/submit" method="POST" class="max-w-lg mx-auto text-left space-y-5">
+                        <input type="hidden" name="access_key" value="291222fd-103b-44ce-aef4-a1b1b28d9f82">
+                        <input type="hidden" name="subject" value="New Blockchain Project Inquiry">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div><label class="block text-sm font-bold text-green-100 mb-2">Name</label><input type="text" name="name" required class="w-full bg-green-800/50 border border-green-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"></div>
+                            <div><label class="block text-sm font-bold text-green-100 mb-2">Email</label><input type="email" name="email" required class="w-full bg-green-800/50 border border-green-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all"></div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-green-100 mb-2">Package Interest</label>
+                            <select name="package" class="w-full bg-green-800/50 border border-green-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all cursor-pointer">
+                                <option class="bg-gray-900">General Blockchain Inquiry</option>
+                                <option class="bg-gray-900">LandingBlock Basic ($150)</option>
+                                <option class="bg-gray-900">LandingBlock Pro ($499)</option>
+                                <option class="bg-gray-900">LandingBlock Enterprise ($999)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-green-100 mb-2">Project Vision & Details</label>
+                            <textarea name="message" rows="4" required class="w-full bg-green-800/50 border border-green-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-all resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-jblack text-white text-xl font-black px-10 py-4 rounded-xl shadow-lg hover:scale-[1.02] hover:bg-gray-900 transition-all flex justify-center gap-2">Email Vision <i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </footer>
+        </div>
+
+    </main>
+
+    <!-- SPA Logic & Navbar Interactions -->
+    <script>
+        // --- 1. Router Logic ---
+        const routes = ['home', 'cv', 'launchpad', 'footprint', 'blockchain'];
+        
+        function navigate(targetRoute) {
+            if(!targetRoute) {
+                targetRoute = window.location.hash.substring(1) || 'home';
+            }
+            if(!routes.includes(targetRoute)) targetRoute = 'home';
+
+            // Hide all views
+            document.querySelectorAll('.spa-view').forEach(view => {
+                view.classList.remove('active');
+            });
+            
+            // Show requested view
+            const activeView = document.getElementById('view-' + targetRoute);
+            if(activeView) activeView.classList.add('active');
+
+            // Update URL silently
+            window.location.hash = targetRoute;
+
+            // Scroll to top
+            window.scrollTo(0,0);
+            
+            // Close mobile menu if open
+            const navMenu = document.querySelector('.md\\:flex');
+            if(navMenu && !navMenu.classList.contains('hidden') && window.innerWidth < 768) {
+                 navMenu.classList.add('hidden');
+            }
+        }
+
+        // Handle browser back/forward buttons
+        window.addEventListener('hashchange', () => navigate());
+        
+        // Initial load
+        window.addEventListener('load', () => navigate());
+
+        // --- 2. Scroll Helpers ---
+        function scrollToSection(id) {
+            navigate('home');
+            setTimeout(() => {
+                const el = document.getElementById(id);
+                if(el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 100; // Offset for navbar
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }
+            }, 50); // slight delay to ensure DOM is active
+        }
+
+        function scrollToContact() {
+            const activeView = document.querySelector('.spa-view.active');
+            const footer = activeView.querySelector('footer');
+            if(footer) footer.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // --- 3. Dynamic Navbar Hiding Script ---
+        let lastScrollTop = 0;
+        const navbar = document.getElementById('navbar');
+
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (Math.abs(lastScrollTop - scrollTop) <= 5) return;
+
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        // --- 4. Mobile Menu Toggle ---
+        const mobileBtn = document.querySelector('.md\\:hidden');
+        const desktopMenu = document.querySelector('.md\\:flex');
+        
+        if(mobileBtn && desktopMenu) {
+            mobileBtn.addEventListener('click', () => {
+                desktopMenu.classList.toggle('hidden');
+                desktopMenu.classList.toggle('flex');
+                desktopMenu.classList.toggle('flex-col');
+                desktopMenu.classList.toggle('absolute');
+                desktopMenu.classList.toggle('top-full');
+                desktopMenu.classList.toggle('left-0');
+                desktopMenu.classList.toggle('w-full');
+                desktopMenu.classList.toggle('bg-white');
+                desktopMenu.classList.toggle('p-6');
+                desktopMenu.classList.toggle('shadow-xl');
+                desktopMenu.classList.toggle('mt-4');
+                desktopMenu.classList.toggle('rounded-2xl');
+            });
+        }
+    </script>
+</body>
+</html>
