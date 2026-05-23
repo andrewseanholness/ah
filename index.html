@@ -25,12 +25,52 @@
     <meta property="og:title" content="Andrew Holness | Entrepreneur & Digital Innovator">
     <meta property="og:description" content="I create and scale digital solutions that empower businesses to grow, automate, and absolutely dominate their online presence.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="ahlogotagline.png">
+    <meta property="og:image" content="https://static.wixstatic.com/media/dae1d7_dde4be2c5881465ba3dd6e3103f5fde7~mv2.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="ahlogotagline.png">
+    <meta name="twitter:image" content="https://static.wixstatic.com/media/dae1d7_dde4be2c5881465ba3dd6e3103f5fde7~mv2.png">
 
     <title>Andrew Holness - Digital Ecosystem</title>
     
+    <!-- Structured Data / Schema Markup for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "Andrew Holness",
+          "jobTitle": "Entrepreneur & Digital Innovator",
+          "url": "https://andrewholness.ca",
+          "image": "https://andrewholness.ca/ahlogo.png",
+          "sameAs": [
+            "https://www.linkedin.com/in/andrewseanholness/"
+          ],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Montreal",
+            "addressRegion": "QC",
+            "addressCountry": "CA"
+          },
+          "description": "I create and scale digital solutions that empower businesses to grow, automate, and dominate their online presence."
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Andrew Holness Consulting",
+          "url": "https://andrewholness.ca",
+          "image": "https://static.wixstatic.com/media/dae1d7_dde4be2c5881465ba3dd6e3103f5fde7~mv2.png",
+          "description": "Premium web design, AI automation, blockchain development, and career growth services.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Montreal",
+            "addressRegion": "QC",
+            "addressCountry": "CA"
+          },
+          "priceRange": "$$"
+        }
+      ]
+    }
+    </script>
+
     <!-- Resource Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,12 +167,12 @@
 
                     <!-- Category 1: For Businesses -->
                     <div class="mb-16">
-                        <h3 class="text-2xl md:text-3xl font-black text-jblack mb-8 flex items-center justify-center gap-3">
+                        <h3 class="text-2xl md:text-3xl font-black text-jblack mb-8 flex items-center justify-center md:justify-start gap-3">
                             <i class="fas fa-building text-jgreen"></i> For Businesses
                         </h3>
-                        <div class="flex flex-wrap justify-center gap-8">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             <!-- MoonMedia -->
-                            <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] bg-purple-700 text-white p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
+                            <div class="bg-purple-700 text-white p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
                                 <div class="absolute -right-6 -top-6 text-white/20 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-paint-roller"></i></div>
                                 <div class="relative z-10 flex-grow">
                                     <span class="bg-white text-purple-700 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow">Digital Design Agency</span>
@@ -145,7 +185,7 @@
                             </div>
 
                             <!-- yourAIoffice -->
-                            <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] bg-jgold text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
+                            <div class="bg-jgold text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
                                 <div class="absolute -right-6 -top-6 text-black/10 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-robot"></i></div>
                                 <div class="relative z-10 flex-grow">
                                     <span class="bg-jblack text-jgold font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow">AI Automation Solutions</span>
@@ -158,7 +198,7 @@
                             </div>
 
                             <!-- Landing Block -->
-                            <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] bg-gray-900 text-white p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
+                            <div class="bg-gray-900 text-white p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
                                 <div class="absolute -right-6 -top-6 text-white/5 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-cubes"></i></div>
                                 <div class="relative z-10 flex-grow">
                                     <span class="bg-jgreen text-white font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow">Web3 Development Agency</span>
@@ -173,13 +213,13 @@
                     </div>
 
                     <!-- Category 2: For Professionals -->
-                    <div class="mb-16">
-                        <h3 class="text-2xl md:text-3xl font-black text-jblack mb-8 flex items-center justify-center gap-3">
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-black text-jblack mb-8 flex items-center justify-center md:justify-start gap-3">
                             <i class="fas fa-user-tie text-jgold"></i> For Individuals/Professionals
                         </h3>
-                        <div class="flex flex-wrap justify-center gap-8">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             <!-- CV Generation -->
-                            <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] bg-jblack text-white p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
+                            <div class="bg-jblack text-white p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
                                 <div class="absolute -right-6 -top-6 text-white/5 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-file-signature"></i></div>
                                 <div class="relative z-10 flex-grow">
                                     <span class="bg-white text-jblack font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow">Career Growth Services</span>
@@ -192,7 +232,7 @@
                             </div>
                             
                             <!-- Launchpad -->
-                            <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] bg-white text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col border border-gray-100">
+                            <div class="bg-white text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col border border-gray-100">
                                 <div class="absolute -right-6 -top-6 text-gray-50 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-rocket"></i></div>
                                 <div class="relative z-10 flex-grow">
                                     <span class="bg-green-50 text-jgreen font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow-sm">Business in a Box</span>
@@ -205,7 +245,7 @@
                             </div>
 
                             <!-- Digital Footprint Polish -->
-                            <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] bg-yellow-50 text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col border border-yellow-100">
+                            <div class="bg-yellow-50 text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col border border-yellow-100">
                                 <div class="absolute -right-6 -top-6 text-yellow-200/50 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-fingerprint"></i></div>
                                 <div class="relative z-10 flex-grow">
                                     <span class="bg-white text-jgold font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow-sm">Personal SEO</span>
@@ -218,7 +258,7 @@
                             </div>
 
                             <!-- Crypto Futures Blueprint -->
-                            <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] bg-green-50 text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col border border-green-100">
+                            <div class="bg-green-50 text-jblack p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:-rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col border border-green-100 lg:col-start-2">
                                 <div class="absolute -right-6 -top-6 text-green-200/50 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-chart-line"></i></div>
                                 <div class="relative z-10 flex-grow">
                                     <span class="bg-white text-jgreen font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow-sm">Trading Education</span>
@@ -227,27 +267,6 @@
                                 </div>
                                 <a href="https://www.cryptofuturesblueprint.com" target="_blank" class="block text-center bg-white text-jblack w-full py-4 rounded-xl font-bold hover:bg-jgreen hover:text-white transition relative z-10 mt-auto">
                                     Start Learning <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Category 3: Local / Community -->
-                    <div>
-                        <h3 class="text-2xl md:text-3xl font-black text-jblack mb-8 flex items-center justify-center gap-3">
-                            <i class="fas fa-map-marker-alt text-blue-500"></i> Local
-                        </h3>
-                        <div class="flex justify-center">
-                            <!-- CSL -->
-                            <div class="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.35rem)] bg-blue-600 text-white p-8 rounded-[2rem] shadow-xl transform hover:-translate-y-2 hover:rotate-1 transition-all duration-300 relative overflow-hidden group flex flex-col">
-                                <div class="absolute -right-6 -top-6 text-white/10 text-9xl group-hover:scale-110 transition-transform duration-500"><i class="fas fa-hands-helping"></i></div>
-                                <div class="relative z-10 flex-grow">
-                                    <span class="bg-white text-blue-600 font-bold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-6 inline-block shadow">Community Care</span>
-                                    <h3 class="text-2xl font-black mb-4">Elderly & Limited Mobility Assistance</h3>
-                                    <p class="font-medium mb-8 text-blue-100 text-base leading-relaxed">Serving Côte Saint-Luc and surrounding areas, I provide professional and compassionate assistance to make daily life easier. From tech troubleshooting and shopping errands to medication pickups, in-home cooking, companionship, and dog-walking—dedicated support you can rely on.</p>
-                                </div>
-                                <a href="/csl.html" class="block text-center bg-jblack text-white w-full py-4 rounded-xl font-bold hover:bg-gray-800 transition relative z-10 mt-auto">
-                                    Learn More <i class="fas fa-arrow-right ml-1"></i>
                                 </a>
                             </div>
                         </div>
@@ -419,7 +438,6 @@
                                 <option value="Launchpad">Zero-to-Consultant Launchpad</option>
                                 <option value="Footprint Polish">Digital Footprint Polish</option>
                                 <option value="Crypto Trading">Crypto Futures Blueprint</option>
-                                <option value="Elderly & Mobility Assistance">Elderly & Limited Mobility Assistance</option>
                             </select>
                         </div>
 
@@ -458,9 +476,11 @@
                 <div class="inline-block bg-green-100 text-jgreen px-5 py-2.5 rounded-full font-bold text-sm mb-8 transform -rotate-2 shadow-sm">📄 Stand Out from the Stack</div>
                 <h1 class="text-5xl md:text-7xl font-black text-jblack mb-6">Make Your CV <span class="text-transparent bg-clip-text bg-gradient-to-r from-jgreen to-jgold">Sparkle.</span></h1>
                 <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium">I optimize, format, and rejuvenate your professional history to bypass ATS algorithms and catch the eye of elite hiring managers.</p>
-                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
                     <button onclick="scrollToContact()" class="inline-block bg-jblack text-white text-xl font-black px-10 py-4 rounded-full shadow-lg hover:-translate-y-1 transition-all">Rejuvenate My CV <i class="fas fa-arrow-down ml-2 animate-bounce"></i></button>
-                    <a href="#cv-process" onclick="document.getElementById('cv-process').scrollIntoView({behavior: 'smooth'})" class="inline-block border-2 border-gray-300 text-gray-700 text-xl font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition-all">See The Process</a>
+                    <div class="flex items-center gap-2 text-xl font-black text-jgreen bg-green-50 px-6 py-3 rounded-full border border-green-200 shadow-sm">
+                        <i class="fas fa-tag"></i> Just $30 Flat Rate
+                    </div>
                 </div>
             </section>
 
@@ -556,7 +576,8 @@
             <footer class="bg-gray-100 py-20 text-center rounded-t-[3rem] relative z-20 border-t border-gray-200 mt-12">
                 <div class="max-w-4xl mx-auto px-6">
                     <h2 class="text-4xl md:text-5xl font-black mb-6 text-jblack">Ready for your next big role?</h2>
-                    <p class="text-xl text-gray-500 mb-10 font-medium">Fill out the form below to request a quick review or to start building your CV from scratch.</p>
+                    <p class="text-xl text-gray-500 mb-6 font-medium">Fill out the form below to request a quick review or to start building your CV from scratch.</p>
+                    <div class="inline-block bg-white border border-gray-200 text-jblack font-black text-lg px-6 py-3 rounded-xl mb-10 shadow-sm"><i class="fas fa-check-circle text-jgreen mr-2"></i> Professional CV Service: $30 Flat Fee</div>
                     
                     <form action="https://api.web3forms.com/submit" method="POST" class="max-w-lg mx-auto mb-16 text-left space-y-5">
                         <input type="hidden" name="access_key" value="291222fd-103b-44ce-aef4-a1b1b28d9f82">
@@ -609,7 +630,6 @@
                 <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium">Transitioning from corporate to consulting? Don't waste weeks figuring out the tech. Get a custom domain, professional email, landing page, and integrated booking link to look legitimate from day one.</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <button onclick="scrollToContact()" class="inline-block bg-jgreen text-white text-xl font-black px-10 py-4 rounded-full shadow-lg hover:-translate-y-1 transition-all">Let's Build It <i class="fas fa-arrow-down ml-2 animate-bounce"></i></button>
-                    <a href="#launchpad-stack" onclick="document.getElementById('launchpad-stack').scrollIntoView({behavior: 'smooth'})" class="inline-block border-2 border-gray-300 text-gray-700 text-xl font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition-all">View Deliverables</a>
                 </div>
             </section>
 
@@ -720,7 +740,6 @@
                 <p class="text-xl text-gray-600 mb-10 max-w-2xl mx-auto font-medium">When a hiring manager or potential client Googles your name, what do they see? I will optimize your LinkedIn, build a professional micro-site, and ensure your search results look flawless.</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <button onclick="scrollToContact()" class="inline-block bg-jblack text-white text-xl font-black px-10 py-4 rounded-full shadow-lg hover:-translate-y-1 transition-all">Take Control <i class="fas fa-arrow-down ml-2 animate-bounce"></i></button>
-                    <a href="#footprint-details" onclick="document.getElementById('footprint-details').scrollIntoView({behavior: 'smooth'})" class="inline-block border-2 border-gray-300 text-gray-700 text-xl font-bold px-10 py-4 rounded-full hover:bg-gray-100 transition-all">See The Breakdown</a>
                 </div>
             </section>
 
@@ -805,7 +824,6 @@
                 <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-3xl mx-auto font-medium">From high-converting crypto landing pages to multi-page Web3 development, we build your project's home on the blockchain with expert precision.</p>
                 <div class="flex flex-col sm:flex-row justify-center gap-4">
                     <button onclick="scrollToContact()" class="bg-jgreen text-white px-8 py-4 rounded-xl font-black text-lg hover:bg-green-600 transition-all shadow-lg shadow-jgreen/20 hover:scale-105">Get Started</button>
-                    <a href="#blockchain-pricing" onclick="document.getElementById('blockchain-pricing').scrollIntoView({behavior: 'smooth'})" class="border-2 border-gray-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transition-all">View Packages</a>
                 </div>
             </section>
 
@@ -1066,6 +1084,15 @@
         // --- 1. Router Logic ---
         const routes = ['home', 'cv', 'launchpad', 'footprint', 'blockchain'];
         
+        // Dynamic SEO Titles for SPA
+        const pageTitles = {
+            'home': 'Andrew Holness - Digital Ecosystem',
+            'cv': 'CV Generation & Rejuvenation | Andrew Holness',
+            'launchpad': 'Zero-to-Consultant Launchpad | Andrew Holness',
+            'footprint': 'Digital Footprint Polish & Personal SEO | Andrew Holness',
+            'blockchain': 'LandingBlock | Web3 Development Agency'
+        };
+        
         function navigate(targetRoute) {
             if(!targetRoute) {
                 targetRoute = window.location.hash.substring(1) || 'home';
@@ -1083,6 +1110,9 @@
 
             // Update URL silently
             window.location.hash = targetRoute;
+            
+            // Update Page Title for SEO and Browser Tabs
+            document.title = pageTitles[targetRoute] || pageTitles['home'];
 
             // Scroll to top
             window.scrollTo(0,0);
