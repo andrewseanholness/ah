@@ -64,8 +64,8 @@
             </div>
         </div>
         <div class="flex items-center space-x-2">
-            <div id="cloud-status" class="flex items-center justify-center w-6 h-6 rounded-full bg-yellow-900/40 border border-yellow-700/50 text-yellow-500 text-[10px]" title="Syncing...">
-                <i class="fa-solid fa-cloud-arrow-up animate-pulse"></i>
+            <div id="cloud-status" class="flex items-center justify-center w-6 h-6 rounded-full bg-emerald-900/40 border border-emerald-700/50 text-emerald-400 text-[10px]" title="Saved Locally & Ready">
+                <i class="fa-solid fa-check"></i>
             </div>
             <button onclick="openAppointmentModal()" class="gradient-bg text-white px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg shadow-purple-900/30 flex items-center space-x-1 active:scale-95 transition">
                 <i class="fa-solid fa-plus"></i><span>Appt</span>
@@ -163,6 +163,7 @@
                 <div class="bg-brandCard border border-purple-900/40 rounded-xl p-3 shadow-lg col-span-2">
                     <div class="text-[10px] text-gray-400 flex justify-between items-center">
                         <span class="flex items-center"><i class="fa-solid fa-landmark text-emerald-400 mr-1.5"></i> Quebec Taxes Collected (To Pay CRA/RQ)</span>
+                        <i class="fa-solid fa-triangle-exclamation text-amber-400 text-[10px]" title="Keep in separate account"></i>
                     </div>
                     <div class="flex justify-between mt-2">
                         <div>
@@ -174,7 +175,7 @@
                             <div id="finance-total-qst" class="text-sm font-bold text-emerald-300">$0.00</div>
                         </div>
                         <div class="text-right">
-                            <comment-tag id="5"><div class="text-[10px] text-gray-500">Total Tax</div></comment-tag id="5" text="To help Tracy with financial planning, consider adding a visual note here (e.g., a small red warning icon) that says 'Keep this amount in a separate account'. This reminds her not to spend the tax money she has collected, as she will owe it to the CRA/Revenu Quebec." type="suggestion">
+                            <div class="text-[10px] text-gray-500">Total Tax</div>
                             <div id="finance-total-tax" class="text-sm font-bold text-white">$0.00</div>
                         </div>
                     </div>
@@ -210,23 +211,15 @@
                 <div class="space-y-2.5 text-xs text-gray-300">
                     <div class="bg-black/30 p-3 rounded-xl border border-purple-900/30 space-y-1">
                         <div class="font-bold text-white flex items-center"><i class="fa-solid fa-1 text-pink-400 mr-2"></i> Adding Appts & Taxes</div>
-                        <p class="text-[11px] text-gray-400">Tap <span class="text-pink-300 font-semibold">+ Appt</span>. When you check "Include GST & QST", the app perfectly calculates the exact 5% GST and 9.975% QST for Quebec automatically onto the invoice!</p>
+                        <p class="text-[11px] text-gray-400">Tap <span class="text-pink-300 font-semibold">+ Appt</span>. When you check "Include GST & QST", the app calculates 5% GST and 9.975% QST automatically onto the invoice.</p>
                     </div>
                     <div class="bg-black/30 p-3 rounded-xl border border-purple-900/30 space-y-1">
                         <div class="font-bold text-white flex items-center"><i class="fa-solid fa-2 text-pink-400 mr-2"></i> Track Expenses & Gas</div>
-                        <p class="text-[11px] text-gray-400">Use the new <strong>Finances</strong> tab to log your gas receipts and hair supplies. We calculate your "Net Profit" by subtracting these expenses from your total hair styling revenue.</p>
+                        <p class="text-[11px] text-gray-400">Use the <strong>Finances</strong> tab to log your gas receipts and supplies. Net Profit is calculated automatically.</p>
                     </div>
                     <div class="bg-black/30 p-3 rounded-xl border border-purple-900/30 space-y-1">
                         <div class="font-bold text-white flex items-center"><i class="fa-solid fa-3 text-pink-400 mr-2"></i> One-Tap SMS Invoicing</div>
-                        <p class="text-[11px] text-gray-400">Tap <span class="text-purple-300 font-semibold">View Invoice</span> on any appointment. Review the clean receipt and tap <span class="text-pink-300 font-semibold">Copy SMS Text</span> to instantly text the bill to the client's family.</p>
-                    </div>
-                    <div class="bg-black/30 p-3 rounded-xl border border-purple-900/30 space-y-1">
-                        <div class="font-bold text-white flex items-center"><i class="fa-solid fa-calendar-plus text-pink-400 mr-2"></i> Smart Reminders</div>
-                        <p class="text-[11px] text-gray-400">Tap <span class="text-emerald-300 font-semibold">Cal</span> on your home screen to instantly add an appointment to your iPhone Calendar to get 24-hour and 1-hour notifications.</p>
-                    </div>
-                    <div class="bg-black/30 p-3 rounded-xl border border-purple-900/30 space-y-1">
-                        <div class="font-bold text-white flex items-center"><i class="fa-solid fa-cloud text-pink-400 mr-2"></i> Cloud Saving</div>
-                        <p class="text-[11px] text-gray-400">Everything saves securely to the cloud and is locked to your device. You will never lose your client notes or tax numbers.</p>
+                        <p class="text-[11px] text-gray-400">Tap <span class="text-purple-300 font-semibold">View Invoice</span> on any appointment to review and copy text directly to your clipboard for clients or family members.</p>
                     </div>
                 </div>
             </div>
@@ -410,7 +403,6 @@
 
     <!-- Client Add Modal -->
     <div id="client-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <!-- Kept exactly same as previous version but abbreviated for space -->
         <div class="bg-brandCard border border-purple-800/60 rounded-3xl w-full max-w-sm p-5 shadow-2xl space-y-4 my-auto">
             <div class="flex justify-between items-center border-b border-purple-900/40 pb-3">
                 <h3 class="text-sm font-bold text-white">Add Client</h3>
@@ -419,22 +411,23 @@
             <form id="client-form" onsubmit="saveClient(event)" class="space-y-3">
                 <input type="hidden" id="client-id">
                 <input type="text" id="client-name" required placeholder="Full Name" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white">
-                <comment-tag id="2"><input type="tel" id="client-phone" required placeholder="Phone Number" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white"></comment-tag id="2" text="Tracy is a mobile stylist who travels to clients' homes. Add an Address field right here (e.g., '<input type='text' id='client-address' placeholder='Home Address'>') so she doesn't have to keep their physical addresses in a separate app." type="suggestion">
+                <input type="tel" id="client-phone" required placeholder="Phone Number" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white">
+                <input type="text" id="client-address" placeholder="Home Address (Street, City)" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white">
                 <select id="client-zone" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white">
-                    <option value="Roxboro">Roxboro</option>
-                    <option value="West Island">West Island</option>
-                    <option value="Montreal">Montreal</option>
+                    <option value="Roxboro">Roxboro ($10)</option>
+                    <option value="West Island">West Island ($20)</option>
+                    <option value="Montreal">Montreal ($30)</option>
                 </select>
                 <textarea id="client-notes" rows="2" placeholder="Mobility/Care Notes" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white"></textarea>
                 <div class="pt-2 flex space-x-2">
                     <button type="button" onclick="closeClientModal()" class="w-1/3 bg-black/40 text-gray-300 py-2.5 rounded-xl text-xs font-semibold">Cancel</button>
-                    <button type="submit" class="w-2/3 gradient-bg text-white py-2.5 rounded-xl text-xs font-semibold">Save</button>
+                    <button type="submit" class="w-2/3 gradient-bg text-white py-2.5 rounded-xl text-xs font-semibold">Save Client</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Invoice Modal (Updated for Taxes) -->
+    <!-- Invoice Modal -->
     <div id="invoice-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto">
         <div class="bg-brandCard border border-purple-700/60 rounded-3xl w-full max-w-sm p-6 shadow-2xl space-y-4 my-auto relative">
             <div class="flex justify-between items-center border-b border-purple-900/50 pb-3">
@@ -497,48 +490,6 @@
         </div>
     </div>
 
-    <!-- First-Time Onboarding Tour Modal -->
-    <div id="onboarding-modal" class="fixed inset-0 z-[60] bg-brandDark hidden flex flex-col justify-center px-6">
-        <div class="text-center space-y-6 max-w-sm mx-auto">
-            <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-pink-500 shadow-[0_0_30px_rgba(236,72,153,0.3)] bg-black flex items-center justify-center">
-                <img src="https://beautifiermontreal.ca/Beautifier%20transparent%20logo.png" alt="Logo" class="w-11/12 h-11/12 object-contain" onerror="this.src='https://placehold.co/200x200/161622/ec4899?text=B'">
-            </div>
-            
-            <div class="space-y-2">
-                <h2 class="text-2xl font-bold gradient-text">Welcome to Beautifier</h2>
-                <p class="text-sm text-gray-400">Tracy, your entire mobile styling business is now in one place.</p>
-            </div>
-
-            <div class="space-y-3 text-left">
-                <div class="bg-brandCard border border-purple-900/50 p-4 rounded-2xl flex items-start space-x-3">
-                    <div class="w-8 h-8 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fa-solid fa-calendar-check"></i></div>
-                    <div>
-                        <h4 class="text-sm font-bold text-white">Book & Invoice</h4>
-                        <p class="text-xs text-gray-400">Add appointments, sync to your Apple Calendar for reminders, and easily text invoices.</p>
-                    </div>
-                </div>
-                <div class="bg-brandCard border border-purple-900/50 p-4 rounded-2xl flex items-start space-x-3">
-                    <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fa-solid fa-file-invoice-dollar"></i></div>
-                    <div>
-                        <h4 class="text-sm font-bold text-white">Quebec Taxes & Gas</h4>
-                        <p class="text-xs text-gray-400">Track your gas receipts and easily charge 5% GST & 9.975% QST with one tap.</p>
-                    </div>
-                </div>
-                <div class="bg-brandCard border border-purple-900/50 p-4 rounded-2xl flex items-start space-x-3">
-                    <div class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fa-solid fa-lock"></i></div>
-                    <div>
-                        <h4 class="text-sm font-bold text-white">Secure Device Storage</h4>
-                        <p class="text-xs text-gray-400">Your client notes and data are permanently saved to the cloud securely on this device.</p>
-                    </div>
-                </div>
-            </div>
-
-            <button onclick="closeOnboardingModal()" class="w-full gradient-bg text-white py-3.5 rounded-xl text-sm font-bold shadow-lg shadow-pink-900/30 animate-bounce mt-4">
-                Let's Get Started <i class="fa-solid fa-arrow-right ml-1"></i>
-            </button>
-        </div>
-    </div>
-
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -557,10 +508,17 @@
         let auth = null;
         let userId = null;
 
+        // Default initial demo clients if local storage is completely empty
+        const defaultClients = [
+            { id: 'cli_1', name: 'Mrs. Eleanor Vance', phone: '514-555-0192', address: '4520 Boulevard Gouin W, Roxboro', zone: 'Roxboro', notes: 'Prefers gentle scalp treatment. Uses walker.' },
+            { id: 'cli_2', name: 'Clara Oswald', phone: '514-555-0144', address: '120 Saint-Charles Blvd, Pointe-Claire', zone: 'West Island', notes: 'Wheelchair access via side ramp.' }
+        ];
+
         async function initFirebase() {
+            loadLocalFallback();
+            
             if (!fbConfig) {
-                console.warn("No Firebase Config, running in Local Mode only.");
-                loadLocalFallback();
+                console.warn("Running in Local Storage Mode.");
                 setupUI();
                 return;
             }
@@ -570,7 +528,7 @@
                 auth = getAuth(app);
                 db = getFirestore(app);
 
-                if (typeof __initial_auth_token !== 'undefined') {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
                     await signInWithCustomToken(auth, __initial_auth_token);
                 } else {
                     await signInAnonymously(auth);
@@ -580,15 +538,12 @@
                 if (!userId) throw new Error("Auth failed");
 
                 document.getElementById('cloud-status').innerHTML = '<i class="fa-solid fa-cloud-check text-emerald-400"></i>';
-                document.getElementById('cloud-status').classList.remove('bg-yellow-900/40', 'border-yellow-700/50', 'text-yellow-500');
-                document.getElementById('cloud-status').classList.add('bg-emerald-900/40', 'border-emerald-700/50');
                 document.getElementById('cloud-status').title = "Cloud Synced";
 
                 subscribeToData();
 
             } catch (err) {
-                console.error("Firebase Auth/Init Error:", err);
-                loadLocalFallback();
+                console.warn("Firebase Auth/Init fallback to local:", err);
                 setupUI();
             }
         }
@@ -602,56 +557,71 @@
 
             // Subscribe Clients
             onSnapshot(getCollectionRef('clients'), (snapshot) => {
-                window.clients = [];
-                snapshot.forEach(doc => window.clients.push({ id: doc.id, ...doc.data() }));
-                window.renderClients();
-                window.populateClientDropdown();
+                if (!snapshot.empty) {
+                    window.clients = [];
+                    snapshot.forEach(doc => window.clients.push({ id: doc.id, ...doc.data() }));
+                    window.renderClients();
+                    window.populateClientDropdown();
+                }
             }, (err) => console.error(err));
 
             // Subscribe Appointments
             onSnapshot(getCollectionRef('appointments'), (snapshot) => {
-                window.appointments = [];
-                snapshot.forEach(doc => window.appointments.push({ id: doc.id, ...doc.data() }));
-                window.renderDashboard();
-                window.renderFinances();
+                if (!snapshot.empty) {
+                    window.appointments = [];
+                    snapshot.forEach(doc => window.appointments.push({ id: doc.id, ...doc.data() }));
+                    window.renderDashboard();
+                    window.renderFinances();
+                }
             }, (err) => console.error(err));
 
             // Subscribe Expenses
             onSnapshot(getCollectionRef('expenses'), (snapshot) => {
-                window.expenses = [];
-                snapshot.forEach(doc => window.expenses.push({ id: doc.id, ...doc.data() }));
-                window.renderFinances();
+                if (!snapshot.empty) {
+                    window.expenses = [];
+                    snapshot.forEach(doc => window.expenses.push({ id: doc.id, ...doc.data() }));
+                    window.renderFinances();
+                }
             }, (err) => console.error(err));
         }
 
         function loadLocalFallback() {
-            window.clients = JSON.parse(localStorage.getItem('beautifier_clients') || '[]');
+            const storedClients = localStorage.getItem('beautifier_clients');
+            window.clients = storedClients ? JSON.parse(storedClients) : defaultClients;
             window.appointments = JSON.parse(localStorage.getItem('beautifier_appointments') || '[]');
             window.expenses = JSON.parse(localStorage.getItem('beautifier_expenses') || '[]');
         }
 
-        // Global functions for HTML access
+        // Global functions for saving data instantly into array + localStorage + cloud
         window.saveData = async function(colName, item) {
+            // Update local storage immediately
+            localStorage.setItem('beautifier_' + colName, JSON.stringify(window[colName]));
+            
+            // Re-render UI immediately
+            if(colName === 'clients') { window.renderClients(); window.populateClientDropdown(); }
+            if(colName === 'appointments') { window.renderDashboard(); window.renderFinances(); }
+            if(colName === 'expenses') { window.renderFinances(); }
+
+            // Sync with Firestore asynchronously
             if (db && userId) {
                 try {
                     await setDoc(doc(getCollectionRef(colName), item.id), item);
-                } catch(e) { console.error("Save error", e); }
-            } else {
-                localStorage.setItem('beautifier_' + colName, JSON.stringify(window[colName]));
+                } catch(e) { console.error("Cloud Save error", e); }
             }
         };
 
         window.deleteData = async function(colName, id) {
+            window[colName] = window[colName].filter(x => x.id !== id);
+            localStorage.setItem('beautifier_' + colName, JSON.stringify(window[colName]));
+            
+            if(colName === 'clients') { window.renderClients(); window.populateClientDropdown(); }
+            if(colName === 'appointments') { window.renderDashboard(); window.renderFinances(); }
+            if(colName === 'expenses') { window.renderFinances(); }
+
             if (db && userId) {
                 try {
                     await deleteDoc(doc(getCollectionRef(colName), id));
-                } catch(e) { console.error("Delete error", e); }
-            } else {
-                window[colName] = window[colName].filter(x => x.id !== id);
-                localStorage.setItem('beautifier_' + colName, JSON.stringify(window[colName]));
-                if(colName==='clients') { window.renderClients(); window.populateClientDropdown(); }
-                if(colName==='appointments') { window.renderDashboard(); window.renderFinances(); }
-                if(colName==='expenses') window.renderFinances();
+                } catch(e) { console.error("Cloud Delete error", e); }
             }
         };
 
@@ -675,8 +645,23 @@
             return `${hours}:${m} ${ampm}`;
         }
 
-        const zoneDefaults = { 'Roxboro': { fee: 10, kms: 8 }, 'West Island': { fee: 20, kms: 22 }, 'Montreal': { fee: 30, kms: 36 }, 'Custom': { fee: 15, kms: 15 } };
-        const serviceCosts = { 'Hair cut': 30, 'Blowdry & Styling': 30, 'Cut & blowdry': 55, 'Color': 60, 'Color, cut and blowdry': 115, 'Treatment': 20, 'Permanent': 100, "Men's cut": 30, 'Beard': 10 };
+        const zoneDefaults = { 
+            'Roxboro': { fee: 10, kms: 8 }, 
+            'West Island': { fee: 20, kms: 22 }, 
+            'Montreal': { fee: 30, kms: 36 }, 
+            'Custom': { fee: 15, kms: 15 } 
+        };
+        const serviceCosts = { 
+            'Hair cut': 30, 
+            'Blowdry & Styling': 30, 
+            'Cut & blowdry': 55, 
+            'Color': 60, 
+            'Color, cut and blowdry': 115, 
+            'Treatment': 20, 
+            'Permanent': 100, 
+            "Men's cut": 30, 
+            'Beard': 10 
+        };
 
         window.switchTab = function(tabId) {
             ['dashboard', 'clients', 'finances', 'insights'].forEach(t => {
@@ -691,25 +676,28 @@
         };
 
         // Modal Open/Close Scripts
-        window.openAppointmentModal = () => { window.populateClientDropdown(); document.getElementById('appointment-form').reset(); document.getElementById('appt-id').value = ''; document.getElementById('appt-date').valueAsDate = new Date(); document.getElementById('appt-time').value = '10:00'; document.getElementById('appointment-modal').classList.remove('hidden'); window.onClientSelectChange(); };
+        window.openAppointmentModal = () => { 
+            window.populateClientDropdown(); 
+            document.getElementById('appointment-form').reset(); 
+            document.getElementById('appt-id').value = ''; 
+            
+            const todayStr = new Date().toISOString().split('T')[0];
+            document.getElementById('appt-date').value = todayStr; 
+            document.getElementById('appt-time').value = '10:00'; 
+            document.getElementById('appointment-modal').classList.remove('hidden'); 
+            window.onClientSelectChange(); 
+        };
         window.closeAppointmentModal = () => document.getElementById('appointment-modal').classList.add('hidden');
         window.openClientModal = () => { document.getElementById('client-form').reset(); document.getElementById('client-id').value = ''; document.getElementById('client-modal').classList.remove('hidden'); };
         window.closeClientModal = () => document.getElementById('client-modal').classList.add('hidden');
-        window.openExpenseModal = () => { document.getElementById('expense-form').reset(); document.getElementById('expense-id').value = ''; document.getElementById('expense-date').valueAsDate = new Date(); document.getElementById('expense-modal').classList.remove('hidden'); };
-        window.closeExpenseModal = () => document.getElementById('expense-modal').classList.add('hidden');
-
-        // Onboarding Modal Logic
-        window.openOnboardingModal = () => document.getElementById('onboarding-modal').classList.remove('hidden');
-        window.closeOnboardingModal = () => {
-            document.getElementById('onboarding-modal').classList.add('hidden');
-            localStorage.setItem('beautifier_tour_completed', 'true');
+        window.openExpenseModal = () => { 
+            document.getElementById('expense-form').reset(); 
+            document.getElementById('expense-id').value = ''; 
+            const todayStr = new Date().toISOString().split('T')[0];
+            document.getElementById('expense-date').value = todayStr; 
+            document.getElementById('expense-modal').classList.remove('hidden'); 
         };
-
-        function checkOnboarding() {
-            if (!localStorage.getItem('beautifier_tour_completed')) {
-                window.openOnboardingModal();
-            }
-        }
+        window.closeExpenseModal = () => document.getElementById('expense-modal').classList.add('hidden');
 
         // Form Responders
         window.onClientSelectChange = () => {
@@ -752,7 +740,10 @@
                 html += `
                     <div class="bg-brandCard border border-purple-900/40 rounded-2xl p-4 shadow-lg space-y-2.5">
                         <div class="flex justify-between items-start">
-                            <div><h3 class="text-xs font-bold text-white">${a.clientName}</h3><p class="text-[10px] text-pink-400">${a.service} • ${a.date} ${timeFormatted}</p></div>
+                            <div>
+                                <h3 class="text-xs font-bold text-white">${a.clientName}</h3>
+                                <p class="text-[10px] text-pink-400 font-medium">${a.service} • ${a.date} ${timeFormatted}</p>
+                            </div>
                             <span class="text-[10px] bg-purple-950 text-purple-300 px-2 py-0.5 rounded-full border border-purple-800/40">${a.zone}</span>
                         </div>
                         <div class="bg-black/30 rounded-xl p-2.5 text-[11px] flex justify-between items-center border border-purple-900/30">
@@ -760,13 +751,13 @@
                             <div class="text-right font-bold text-pink-400 text-sm">$${total.toFixed(2)}</div>
                         </div>
                         <div class="flex space-x-2 pt-1 border-t border-purple-900/30">
-                            <button onclick="addToCalendar('${a.id}')" class="flex-1 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-700/50 text-emerald-300 py-1.5 rounded-xl text-[11px] font-semibold"><i class="fa-solid fa-calendar-plus mr-1"></i>Cal</button>
-                            <button onclick="openInvoiceModal('${a.id}')" class="flex-1 bg-purple-950/80 hover:bg-purple-900 border border-purple-700/50 text-pink-300 py-1.5 rounded-xl text-[11px] font-semibold"><i class="fa-solid fa-file-invoice-dollar mr-1"></i>Invoice</button>
+                            <button onclick="addToCalendar('${a.id}')" class="flex-1 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-700/50 text-emerald-300 py-1.5 rounded-xl text-[11px] font-semibold flex items-center justify-center space-x-1"><i class="fa-solid fa-calendar-plus"></i><span>Cal</span></button>
+                            <button onclick="openInvoiceModal('${a.id}')" class="flex-1 bg-purple-950/80 hover:bg-purple-900 border border-purple-700/50 text-pink-300 py-1.5 rounded-xl text-[11px] font-semibold flex items-center justify-center space-x-1"><i class="fa-solid fa-file-invoice-dollar"></i><span>Invoice</span></button>
                             <button onclick="deleteData('appointments', '${a.id}')" class="px-3 bg-black/40 text-gray-400 hover:text-red-400 py-1.5 rounded-xl text-[11px]"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </div>`;
             });
-            listEl.innerHTML = html || '<p class="text-center text-xs text-gray-500 py-4">No appointments yet.</p>';
+            listEl.innerHTML = html || '<p class="text-center text-xs text-gray-500 py-6 bg-brandCard/40 rounded-2xl border border-purple-900/20">No appointments scheduled yet.<br>Tap <span class="text-pink-400 font-semibold">+ Appt</span> to add one!</p>';
             window.renderFinances();
         };
 
@@ -836,7 +827,11 @@
         window.populateClientDropdown = function() {
             const sel = document.getElementById('appt-client-id');
             if(!sel) return;
-            sel.innerHTML = window.clients.map(c => `<option value="${c.id}" data-zone="${c.zone}">${c.name}</option>`).join('');
+            if (window.clients.length === 0) {
+                sel.innerHTML = '<option value="">No clients found - Add client first</option>';
+            } else {
+                sel.innerHTML = window.clients.map(c => `<option value="${c.id}" data-zone="${c.zone}">${c.name}</option>`).join('');
+            }
         };
         
         window.renderClients = function() {
@@ -850,11 +845,15 @@
                 html += `
                     <div class="bg-brandCard border border-purple-900/40 rounded-2xl p-4 shadow-lg">
                         <div class="flex justify-between items-start mb-2">
-                            <div><h3 class="text-xs font-bold text-white">${c.name}</h3><p class="text-[10px] text-gray-400">${c.phone}</p></div>
+                            <div>
+                                <h3 class="text-xs font-bold text-white">${c.name}</h3>
+                                <p class="text-[10px] text-gray-400">${c.phone}</p>
+                                ${c.address ? `<p class="text-[10px] text-pink-300 flex items-center mt-0.5"><i class="fa-solid fa-location-dot mr-1 text-[9px]"></i>${c.address}</p>` : ''}
+                            </div>
                             <span class="text-[10px] bg-purple-950 text-pink-300 px-2 py-0.5 rounded-full">${c.zone}</span>
                         </div>
-                        ${c.notes ? `<p class="text-[10px] text-gray-400 italic bg-black/30 p-2 rounded-lg mb-2">${c.notes}</p>` : ''}
-                        <button onclick="scheduleForClient('${c.id}')" class="w-full bg-black/40 border border-purple-900/50 text-gray-300 py-1.5 rounded-xl text-[11px] font-semibold"><i class="fa-solid fa-calendar-plus mr-1"></i>Book</button>
+                        ${c.notes ? `<p class="text-[10px] text-gray-400 italic bg-black/30 p-2 rounded-lg mb-2 border border-purple-900/30">${c.notes}</p>` : ''}
+                        <button onclick="scheduleForClient('${c.id}')" class="w-full bg-black/40 border border-purple-900/50 text-gray-300 py-1.5 rounded-xl text-[11px] font-semibold"><i class="fa-solid fa-calendar-plus mr-1"></i>Book Appointment</button>
                     </div>`;
             });
             listEl.innerHTML = html || '<p class="text-center text-xs text-gray-500 py-4">No clients found.</p>';
@@ -881,22 +880,26 @@
                 qst = parseFloat((sub * 0.09975).toFixed(2));
             }
 
-            const apt = {
+            const newAppt = {
                 id: document.getElementById('appt-id').value || 'apt_' + Date.now(),
                 clientId: sel.value,
                 clientName: opt ? opt.text : 'Client',
-                date: document.getElementById('appt-date').value,
-                time: document.getElementById('appt-time').value,
+                date: document.getElementById('appt-date').value || new Date().toISOString().split('T')[0],
+                time: document.getElementById('appt-time').value || '10:00',
                 zone: document.getElementById('appt-zone').value,
                 service: document.getElementById('appt-service').value,
-                cost, travelFee: travel, gst, qst,
+                cost, 
+                travelFee: travel, 
+                gst, 
+                qst,
                 kms: parseInt(document.getElementById('appt-kms').value) || 0,
             };
 
-            window.appointments.push(apt);
-            window.saveData('appointments', apt);
+            // Push directly to memory array so it shows in dashboard immediately
+            window.appointments.push(newAppt);
+            window.saveData('appointments', newAppt);
             window.closeAppointmentModal();
-            window.openInvoiceModal(apt.id);
+            window.openInvoiceModal(newAppt.id);
         };
 
         window.saveExpense = (e) => {
@@ -919,8 +922,9 @@
                 id: document.getElementById('client-id').value || 'cli_' + Date.now(),
                 name: document.getElementById('client-name').value,
                 phone: document.getElementById('client-phone').value,
+                address: document.getElementById('client-address').value || '',
                 zone: document.getElementById('client-zone').value,
-                notes: document.getElementById('client-notes').value
+                notes: document.getElementById('client-notes').value || ''
             };
             window.clients.push(cli);
             window.saveData('clients', cli);
@@ -962,22 +966,19 @@
             const sub = a.cost + a.travelFee;
             const total = sub + (a.gst || 0) + (a.qst || 0);
             
-            let txt = `Hello! Here is the invoice from Beautifier for ${a.clientName}:\n\n📅 Date: ${a.date} ${a.time ? '@ ' + formatTime12(a.time) : ''}\n💇‍♀️ Service: $${a.cost.toFixed(2)}\n🚗 Travel: $${a.travelFee.toFixed(2)}\n`;
+            let txt = `Hello! Here is the receipt from Beautifier for ${a.clientName}:\n\n📅 Date: ${a.date} ${a.time ? '@ ' + formatTime12(a.time) : ''}\n💇‍♀️ Service: $${a.cost.toFixed(2)}\n🚗 Travel: $${a.travelFee.toFixed(2)}\n`;
             if(a.gst > 0) txt += `\nSubtotal: $${sub.toFixed(2)}\nGST (5%): $${a.gst.toFixed(2)}\nQST (9.975%): $${a.qst.toFixed(2)}\n`;
             txt += `-------------------\n💰 TOTAL: $${total.toFixed(2)}\n\nThank you! (Tel: 514-773-7814)`;
 
             const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select();
-            try { document.execCommand('copy'); alert('Invoice copied! Paste it in Messages.'); } 
-            catch(e) { alert('Could not copy automatically.'); }
+            try { document.execCommand('copy'); alert('Invoice copied to clipboard! You can paste it in Messages.'); } 
+            catch(e) { console.error('Copy error', e); }
             document.body.removeChild(ta);
         };
 
         window.addToCalendar = (id) => {
             const a = window.appointments.find(x => x.id === id);
-            if (!a || !a.date || !a.time) {
-                alert("Please ensure the appointment has a valid date and time to add it to the calendar.");
-                return;
-            }
+            if (!a || !a.date || !a.time) return;
 
             const startDate = new Date(`${a.date}T${a.time}`);
             const endDate = new Date(startDate.getTime() + 90 * 60000);
@@ -1010,8 +1011,7 @@
         
         setTimeout(() => {
             setupUI();
-            checkOnboarding();
-        }, 200);
+        }, 100);
     </script>
 </body>
 </html>
