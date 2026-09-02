@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Beautifier Mobile - Tracy's Hairstyling</title>
+    <!-- Favicon & Apple Touch Icon -->
+    <link rel="icon" type="image/png" href="https://beautifiermontreal.ca/Beautifier%20transparent%20logo.png">
+    <link rel="apple-touch-icon" href="https://beautifiermontreal.ca/Beautifier%20transparent%20logo.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0b0b10',
+                        brandCard: '#161622',
+                        brandPurple: '#9333ea',
+                        brandPink: '#ec4899',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0b10;
+            color: #f3f4f6;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #c084fc 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #9333ea 0%, #db2777 100%);
+        }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #0b0b10; }
+        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+    </style>
+</head>
+<body class="h-full flex flex-col max-w-md mx-auto bg-brandDark shadow-2xl relative overflow-x-hidden">
+
+    <!-- Top Header Bar -->
+    <header class="bg-brandCard/90 backdrop-blur-md border-b border-purple-900/40 sticky top-0 z-40 px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-full overflow-hidden border border-pink-500 shadow-md bg-black flex-shrink-0 flex items-center justify-center">
+                <img src="https://beautifiermontreal.ca/Beautifier%20transparent%20logo.png" alt="Logo" class="w-11/12 h-11/12 object-contain" onerror="this.src='https://placehold.co/100x100/161622/ec4899?text=B'">
+            </div>
+            <div>
+                <h1 class="text-sm font-bold gradient-text">BEAUTIFIER</h1>
+                <p class="text-[10px] text-gray-400">Tracy • Mobile Hairstyling</p>
+            </div>
+        </div>
+        <div class="flex items-center space-x-2">
+            <div id="cloud-status" class="flex items-center justify-center w-6 h-6 rounded-full bg-yellow-900/40 border border-yellow-700/50 text-yellow-500 text-[10px]" title="Syncing...">
+                <i class="fa-solid fa-cloud-arrow-up animate-pulse"></i>
+            </div>
+            <button onclick="openAppointmentModal()" class="gradient-bg text-white px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg shadow-purple-900/30 flex items-center space-x-1 active:scale-95 transition">
+                <i class="fa-solid fa-plus"></i><span>Appt</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto pb-24 pt-4 px-4 space-y-4">
+
+        <!-- TAB: DASHBOARD (Home) -->
+        <div id="tab-dashboard" class="space-y-4">
+            
+            <!-- Quick Business Stats Banner -->
+            <div class="gradient-bg rounded-2xl p-4 shadow-xl text-white space-y-3 relative overflow-hidden">
+                <div class="absolute -right-6 -bottom-6 opacity-10 text-8xl">
+                    <i class="fa-solid fa-scissors"></i>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-xs font-medium uppercase tracking-wider text-pink-200">Business Summary</span>
+                    <span class="text-[10px] bg-black/30 px-2 py-0.5 rounded-full border border-white/20">Base: H8Y 2L1</span>
+                </div>
+                <div class="grid grid-cols-3 gap-2 pt-1">
+                    <div class="bg-black/20 backdrop-blur-sm rounded-xl p-2.5 border border-white/10">
+                        <div class="text-[10px] text-pink-200">Gross Rev</div>
+                        <div id="stat-revenue" class="text-sm font-bold mt-0.5">$0.00</div>
+                    </div>
+                    <div class="bg-black/20 backdrop-blur-sm rounded-xl p-2.5 border border-white/10">
+                        <div class="text-[10px] text-pink-200">Net Profit</div>
+                        <div id="stat-profit" class="text-sm font-bold mt-0.5">$0.00</div>
+                    </div>
+                    <div class="bg-black/20 backdrop-blur-sm rounded-xl p-2.5 border border-white/10">
+                        <div class="text-[10px] text-pink-200">KM Driven</div>
+                        <div id="stat-kms" class="text-sm font-bold mt-0.5">0 km</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appointments Section Header -->
+            <div class="flex justify-between items-center pt-2">
+                <h2 class="text-xs font-bold uppercase tracking-wider text-gray-400">Recent & Upcoming Appointments</h2>
+                <button onclick="openAppointmentModal()" class="text-xs text-pink-400 font-semibold hover:underline">+ Add New</button>
+            </div>
+
+            <!-- Appointments List Container -->
+            <div id="appointments-list" class="space-y-3">
+                <!-- Dynamically populated appointments -->
+            </div>
+        </div>
+
+        <!-- TAB: CLIENT DIRECTORY -->
+        <div id="tab-clients" class="space-y-4 hidden">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 class="text-lg font-bold text-white">Client Care Directory</h2>
+                    <p class="text-xs text-gray-400">Elderly & special mobility client profiles</p>
+                </div>
+                <button onclick="openClientModal()" class="gradient-bg text-white px-3 py-1.5 rounded-xl text-xs font-semibold shadow flex items-center space-x-1">
+                    <i class="fa-solid fa-user-plus"></i><span>New</span>
+                </button>
+            </div>
+
+            <div class="relative">
+                <i class="fa-solid fa-search absolute left-3.5 top-3 text-gray-500 text-xs"></i>
+                <input type="text" id="client-search" oninput="renderClients()" placeholder="Search clients by name, zone, phone..." class="w-full bg-brandCard border border-purple-900/40 rounded-xl pl-9 pr-4 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-pink-500">
+            </div>
+
+            <div id="clients-list" class="space-y-3">
+                <!-- Dynamically populated clients -->
+            </div>
+        </div>
+
+        <!-- TAB: FINANCES, EXPENSES & TAXES -->
+        <div id="tab-finances" class="space-y-4 hidden">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h2 class="text-lg font-bold text-white">Finances & Taxes (QC)</h2>
+                    <p class="text-xs text-gray-400">Track expenses, gas & GST/QST collected</p>
+                </div>
+                <button onclick="openExpenseModal()" class="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl text-xs font-semibold shadow flex items-center space-x-1">
+                    <i class="fa-solid fa-receipt"></i><span>Add Expense</span>
+                </button>
+            </div>
+
+            <!-- Tax & Expense Dashboard -->
+            <div class="grid grid-cols-2 gap-3">
+                <div class="bg-brandCard border border-purple-900/40 rounded-xl p-3 shadow-lg">
+                    <div class="text-[10px] text-gray-400 flex items-center"><i class="fa-solid fa-gas-pump text-orange-400 mr-1.5"></i> Total Gas & Fuel</div>
+                    <div id="finance-total-gas" class="text-lg font-bold text-orange-300 mt-1">$0.00</div>
+                </div>
+                <div class="bg-brandCard border border-purple-900/40 rounded-xl p-3 shadow-lg">
+                    <div class="text-[10px] text-gray-400 flex items-center"><i class="fa-solid fa-cart-shopping text-blue-400 mr-1.5"></i> Other Expenses</div>
+                    <div id="finance-total-other" class="text-lg font-bold text-blue-300 mt-1">$0.00</div>
+                </div>
+                <div class="bg-brandCard border border-purple-900/40 rounded-xl p-3 shadow-lg col-span-2">
+                    <div class="text-[10px] text-gray-400 flex justify-between items-center">
+                        <span class="flex items-center"><i class="fa-solid fa-landmark text-emerald-400 mr-1.5"></i> Quebec Taxes Collected (To Pay CRA/RQ)</span>
+                    </div>
+                    <div class="flex justify-between mt-2">
+                        <div>
+                            <div class="text-[10px] text-gray-500">GST (5%)</div>
+                            <div id="finance-total-gst" class="text-sm font-bold text-emerald-300">$0.00</div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-500">QST (9.975%)</div>
+                            <div id="finance-total-qst" class="text-sm font-bold text-emerald-300">$0.00</div>
+                        </div>
+                        <div class="text-right">
+                            <comment-tag id="5"><div class="text-[10px] text-gray-500">Total Tax</div></comment-tag id="5" text="To help Tracy with financial planning, consider adding a visual note here (e.g., a small red warning icon) that says 'Keep this amount in a separate account'. This reminds her not to spend the tax money she has collected, as she will owe it to the CRA/Revenu Quebec." type="suggestion">
+                            <div id="finance-total-tax" class="text-sm font-bold text-white">$0.00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expense List -->
+            <div class="pt-2">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">Recent Expenses Log</h3>
+                <div id="expenses-list" class="space-y-3">
+                    <!-- Populated dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB: BUSINESS INSIGHTS & TRACY'S ASSISTANT -->
+        <div id="tab-insights" class="space-y-4 hidden">
+            <div>
+                <h2 class="text-lg font-bold text-white">Tracy's Hub & Guides</h2>
+                <p class="text-xs text-gray-400">Easy explainers for every app function</p>
+            </div>
+
+            <!-- Guide Card -->
+            <div class="bg-gradient-to-br from-purple-950/80 via-brandCard to-pink-950/40 border border-purple-800/40 rounded-2xl p-4 shadow-xl space-y-3">
+                <div class="flex justify-between items-center">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-pink-400 flex items-center">
+                        <i class="fa-solid fa-graduation-cap mr-2"></i> App Quick Guide
+                    </h3>
+                    <button onclick="openOnboardingModal()" class="text-[10px] bg-pink-950 text-pink-300 px-2.5 py-1 rounded-full border border-pink-800/40 active:scale-95 transition">
+                        <i class="fa-solid fa-rotate-right mr-1"></i> Replay Intro
+                    </button>
+                </div>
+                <div class="space-y-2.5 text-xs text-gray-300">
+                    <div class="bg-black/30 p-3 rounded-xl border border-purple-900/30 space-y-1">
+                        <div class="font-bold text-white flex items-center"><i class="fa-solid fa-1 text-pink-400 mr-2"></i> Adding Appts & Taxes</div>
+                        <p class="text-[11px] text-gray-400">Tap <span class="text-pink-300 font-semibold">+ Appt</span>. When you check "Include GST & QST", the app perfectly calculates the exact 5% GST and 9.975% QST for Quebec automatically onto the invoice!</p>
+                    </div>
+                    <div class="bg-black/30 p-3 rounded-xl border border-purple-900/30 space-y-1">
+                        <div class="font-bold text-white flex items-center"><i class="fa-solid fa-2 text-pink-400 mr-2"></i> Track Expenses & Gas</div>
+                        <p class="text-[11px] text-gray-400">Use the new <strong>Finances</strong> tab to log your gas receipts and hair supplies. We calculate your "Net Profit" by subtracting these expenses from your total hair styling revenue.</p>
+                    </div>
+                    <div class="bg-black/30 p-3 rounded-xl border border-purple-900/30 space-y-1">
+                        <div class="font-bold text-white flex items-center"><i class="fa-solid fa-3 text-pink-400 mr-2"></i> One-Tap SMS Invoicing</div>
+                        <p class="text-[11px] text-gray-400">Tap <span class="text-purple-300 font-semibold">View Invoice</span> on any appointment. Review the clean receipt and tap <span class="text-pink-300 font-semibold">Copy SMS Text</span> to instantly text the bill to the client's family.</p>
+                    </div>
+                    <div class="bg-black/30 p-3 rounded-xl border border-purple-900/30 space-y-1">
+                        <div class="font-bold text-white flex items-center"><i class="fa-solid fa-calendar-plus text-pink-400 mr-2"></i> Smart Reminders</div>
+                        <p class="text-[11px] text-gray-400">Tap <span class="text-emerald-300 font-semibold">Cal</span> on your home screen to instantly add an appointment to your iPhone Calendar to get 24-hour and 1-hour notifications.</p>
+                    </div>
+                    <div class="bg-black/30 p-3 rounded-xl border border-purple-900/30 space-y-1">
+                        <div class="font-bold text-white flex items-center"><i class="fa-solid fa-cloud text-pink-400 mr-2"></i> Cloud Saving</div>
+                        <p class="text-[11px] text-gray-400">Everything saves securely to the cloud and is locked to your device. You will never lose your client notes or tax numbers.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zone Summary Card -->
+            <div class="bg-brandCard border border-purple-900/40 rounded-2xl p-4 shadow-lg space-y-3">
+                <h3 class="text-xs font-bold uppercase tracking-wider text-pink-400 flex items-center">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i> Travel Zones (From H8Y 2L1)
+                </h3>
+                <div class="grid grid-cols-3 gap-2 text-center">
+                    <div class="bg-black/30 p-2.5 rounded-xl border border-purple-900/30">
+                        <div class="text-[10px] text-gray-400">Roxboro</div>
+                        <div class="text-base font-bold text-purple-300 mt-1">$10</div>
+                    </div>
+                    <div class="bg-black/30 p-2.5 rounded-xl border border-purple-900/30">
+                        <div class="text-[10px] text-gray-400">West Island</div>
+                        <div class="text-base font-bold text-pink-400 mt-1">$20</div>
+                    </div>
+                    <div class="bg-black/30 p-2.5 rounded-xl border border-purple-900/30">
+                        <div class="text-[10px] text-gray-400">Montreal</div>
+                        <div class="text-base font-bold text-emerald-400 mt-1">$30</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Bottom Nav Bar -->
+    <nav class="bg-brandCard/95 backdrop-blur-md border-t border-purple-900/40 fixed bottom-0 left-0 right-0 z-40 max-w-md mx-auto px-4 py-2 flex justify-between items-center shadow-2xl">
+        <button onclick="switchTab('dashboard')" id="tab-btn-dashboard" class="flex-1 flex flex-col items-center text-pink-400 transition space-y-1">
+            <i class="fa-solid fa-house text-base"></i>
+            <span class="text-[10px] font-semibold">Home</span>
+        </button>
+        <button onclick="switchTab('clients')" id="tab-btn-clients" class="flex-1 flex flex-col items-center text-gray-400 hover:text-pink-400 transition space-y-1">
+            <i class="fa-solid fa-address-book text-base"></i>
+            <span class="text-[10px] font-medium">Clients</span>
+        </button>
+        <button onclick="switchTab('finances')" id="tab-btn-finances" class="flex-1 flex flex-col items-center text-gray-400 hover:text-pink-400 transition space-y-1">
+            <i class="fa-solid fa-chart-line text-base"></i>
+            <span class="text-[10px] font-medium">Finances</span>
+        </button>
+        <button onclick="switchTab('insights')" id="tab-btn-insights" class="flex-1 flex flex-col items-center text-gray-400 hover:text-pink-400 transition space-y-1">
+            <i class="fa-solid fa-circle-info text-base"></i>
+            <span class="text-[10px] font-medium">Hub</span>
+        </button>
+    </nav>
+
+    <!-- New/Edit Appointment Modal -->
+    <div id="appointment-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-brandCard border border-purple-800/60 rounded-3xl w-full max-w-sm p-5 shadow-2xl space-y-4 my-auto mt-10 mb-10">
+            <div class="flex justify-between items-center border-b border-purple-900/40 pb-3">
+                <h3 id="appt-modal-title" class="text-sm font-bold text-white">New Appointment</h3>
+                <button onclick="closeAppointmentModal()" class="text-gray-400 hover:text-white text-sm"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <form id="appointment-form" onsubmit="saveAppointment(event)" class="space-y-3">
+                <input type="hidden" id="appt-id">
+                
+                <div class="space-y-1">
+                    <label class="text-[11px] font-medium text-gray-300">Client</label>
+                    <select id="appt-client-id" onchange="onClientSelectChange()" required class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500"></select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="space-y-1">
+                        <label class="text-[11px] font-medium text-gray-300">Date</label>
+                        <input type="date" id="appt-date" required class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[11px] font-medium text-gray-300">Time</label>
+                        <input type="time" id="appt-time" required class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500">
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-[11px] font-medium text-gray-300">Travel Zone</label>
+                    <select id="appt-zone" onchange="onZoneChange()" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500">
+                        <option value="Roxboro">Roxboro ($10)</option>
+                        <option value="West Island">West Island ($20)</option>
+                        <option value="Montreal">Montreal ($30)</option>
+                        <option value="Custom">Custom Zone</option>
+                    </select>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-[11px] font-medium text-gray-300">Service Type</label>
+                    <select id="appt-service" onchange="onServiceChange()" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500">
+                        <option value="Hair cut">Hair cut ($30)</option>
+                        <option value="Blowdry & Styling">Blowdry & Styling ($30+)</option>
+                        <option value="Cut & blowdry">Cut & blowdry ($55)</option>
+                        <option value="Color">Color ($60+)</option>
+                        <option value="Color, cut and blowdry">Color, cut and blowdry ($115+)</option>
+                        <option value="Treatment">Treatment ($20+)</option>
+                        <option value="Permanent">Permanent ($100)</option>
+                        <option value="Men's cut">Men's cut ($30)</option>
+                        <option value="Beard">Beard ($10)</option>
+                    </select>
+                </div>
+
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="space-y-1">
+                        <label class="text-[11px] font-medium text-gray-300">Service Cost ($)</label>
+                        <input type="number" step="0.01" id="appt-cost" required class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[11px] font-medium text-gray-300">Travel Fee ($)</label>
+                        <input type="number" step="0.01" id="appt-travel-fee" required class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500">
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-[11px] font-medium text-gray-300">Round-Trip KM (from H8Y 2L1)</label>
+                    <input type="number" id="appt-kms" required class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500">
+                </div>
+
+                <!-- Quebec Taxes Toggle -->
+                <div class="bg-emerald-950/30 border border-emerald-900/50 rounded-xl p-3 flex items-center justify-between">
+                    <div>
+                        <label class="text-[11px] font-bold text-emerald-400">Charge GST & QST?</label>
+                        <p class="text-[9px] text-gray-400">Adds 5% GST & 9.975% QST to invoice</p>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="appt-charge-tax" class="sr-only peer">
+                        <div class="w-9 h-5 bg-gray-600 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-500"></div>
+                    </label>
+                </div>
+
+                <div class="pt-2 flex space-x-2">
+                    <button type="button" onclick="closeAppointmentModal()" class="w-1/3 bg-black/40 border border-purple-900/50 text-gray-300 py-2.5 rounded-xl text-xs font-semibold">Cancel</button>
+                    <button type="submit" class="w-2/3 gradient-bg text-white py-2.5 rounded-xl text-xs font-semibold shadow-lg shadow-purple-900/40">Save Appt</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Expense Modal -->
+    <div id="expense-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-brandCard border border-purple-800/60 rounded-3xl w-full max-w-sm p-5 shadow-2xl space-y-4 my-auto">
+            <div class="flex justify-between items-center border-b border-purple-900/40 pb-3">
+                <h3 class="text-sm font-bold text-white">Log Business Expense</h3>
+                <button onclick="closeExpenseModal()" class="text-gray-400 hover:text-white text-sm"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <form id="expense-form" onsubmit="saveExpense(event)" class="space-y-3">
+                <input type="hidden" id="expense-id">
+                
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="space-y-1">
+                        <label class="text-[11px] font-medium text-gray-300">Date</label>
+                        <input type="date" id="expense-date" required class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500">
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[11px] font-medium text-gray-300">Total Amount ($)</label>
+                        <input type="number" step="0.01" id="expense-amount" required class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500">
+                    </div>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-[11px] font-medium text-gray-300">Category</label>
+                    <select id="expense-category" required class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-pink-500">
+                        <option value="Gas & Fuel">⛽ Gas & Fuel</option>
+                        <option value="Hair Supplies">✂️ Hair Products / Supplies</option>
+                        <option value="Marketing">📢 Marketing / Web</option>
+                        <option value="Other">📁 Other Expense</option>
+                    </select>
+                </div>
+
+                <div class="space-y-1">
+                    <label class="text-[11px] font-medium text-gray-300">Description / Receipt Note</label>
+                    <input type="text" id="expense-notes" placeholder="e.g. Esso Roxboro, Sally Beauty" required class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-pink-500">
+                </div>
+
+                <div class="pt-2 flex space-x-2">
+                    <button type="button" onclick="closeExpenseModal()" class="w-1/3 bg-black/40 border border-purple-900/50 text-gray-300 py-2.5 rounded-xl text-xs font-semibold">Cancel</button>
+                    <button type="submit" class="w-2/3 bg-emerald-600 hover:bg-emerald-500 text-white py-2.5 rounded-xl text-xs font-semibold shadow-lg shadow-emerald-900/40">Save Expense</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Client Add Modal -->
+    <div id="client-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <!-- Kept exactly same as previous version but abbreviated for space -->
+        <div class="bg-brandCard border border-purple-800/60 rounded-3xl w-full max-w-sm p-5 shadow-2xl space-y-4 my-auto">
+            <div class="flex justify-between items-center border-b border-purple-900/40 pb-3">
+                <h3 class="text-sm font-bold text-white">Add Client</h3>
+                <button onclick="closeClientModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <form id="client-form" onsubmit="saveClient(event)" class="space-y-3">
+                <input type="hidden" id="client-id">
+                <input type="text" id="client-name" required placeholder="Full Name" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white">
+                <comment-tag id="2"><input type="tel" id="client-phone" required placeholder="Phone Number" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white"></comment-tag id="2" text="Tracy is a mobile stylist who travels to clients' homes. Add an Address field right here (e.g., '<input type='text' id='client-address' placeholder='Home Address'>') so she doesn't have to keep their physical addresses in a separate app." type="suggestion">
+                <select id="client-zone" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white">
+                    <option value="Roxboro">Roxboro</option>
+                    <option value="West Island">West Island</option>
+                    <option value="Montreal">Montreal</option>
+                </select>
+                <textarea id="client-notes" rows="2" placeholder="Mobility/Care Notes" class="w-full bg-black/50 border border-purple-900/50 rounded-xl px-3 py-2 text-xs text-white"></textarea>
+                <div class="pt-2 flex space-x-2">
+                    <button type="button" onclick="closeClientModal()" class="w-1/3 bg-black/40 text-gray-300 py-2.5 rounded-xl text-xs font-semibold">Cancel</button>
+                    <button type="submit" class="w-2/3 gradient-bg text-white py-2.5 rounded-xl text-xs font-semibold">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Invoice Modal (Updated for Taxes) -->
+    <div id="invoice-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-brandCard border border-purple-700/60 rounded-3xl w-full max-w-sm p-6 shadow-2xl space-y-4 my-auto relative">
+            <div class="flex justify-between items-center border-b border-purple-900/50 pb-3">
+                <h3 class="text-sm font-bold gradient-text">Receipt Preview</h3>
+                <button onclick="closeInvoiceModal()" class="text-gray-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- Printable Paper Invoice -->
+            <div id="invoice-content-area" class="bg-white text-gray-900 p-5 rounded-2xl shadow-inner space-y-4 text-xs font-mono">
+                <div class="text-center border-b border-dashed border-gray-300 pb-3 space-y-1">
+                    <div class="font-bold text-sm text-purple-900 tracking-wide font-sans">BEAUTIFIER COIFFEUSE</div>
+                    <div class="text-[10px] text-gray-600 font-sans">Mobile Hairstyling Care</div>
+                    <div class="text-[10px] text-gray-500">Tel: 514-773-7814 | beautifiermontreal.ca</div>
+                </div>
+
+                <div class="space-y-1">
+                    <div class="flex justify-between"><span class="text-gray-500">Date:</span> <span id="inv-date" class="font-bold"></span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Client:</span> <span id="inv-client-name" class="font-bold"></span></div>
+                    <div class="flex justify-between"><span class="text-gray-500">Zone:</span> <span id="inv-zone"></span></div>
+                </div>
+
+                <div class="border-t border-b border-dashed border-gray-300 py-2.5 space-y-1.5">
+                    <div class="flex justify-between">
+                        <span id="inv-service-name" class="font-semibold text-gray-800"></span>
+                        <span id="inv-service-price" class="font-bold"></span>
+                    </div>
+                    <div class="flex justify-between text-gray-600">
+                        <span>Travel Fee (Origin H8Y 2L1)</span>
+                        <span id="inv-travel-fee"></span>
+                    </div>
+                </div>
+
+                <!-- Tax Section -->
+                <div id="inv-tax-section" class="border-b border-dashed border-gray-300 pb-2.5 space-y-1 text-gray-600 hidden">
+                    <div class="flex justify-between">
+                        <span>Subtotal</span>
+                        <span id="inv-subtotal"></span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>GST (5%)</span>
+                        <span id="inv-gst"></span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>QST (9.975%)</span>
+                        <span id="inv-qst"></span>
+                    </div>
+                </div>
+
+                <div class="flex justify-between items-center text-sm font-bold text-purple-900 pt-1 font-sans">
+                    <span>Total Amount Due:</span>
+                    <span id="inv-total" class="text-base text-pink-600"></span>
+                </div>
+            </div>
+
+            <div class="space-y-2 pt-1">
+                <button type="button" onclick="copyInvoiceSMS()" class="w-full gradient-bg text-white py-2.5 rounded-xl text-xs font-semibold flex items-center justify-center space-x-2">
+                    <i class="fa-solid fa-comment-sms"></i><span>Copy SMS Text</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- First-Time Onboarding Tour Modal -->
+    <div id="onboarding-modal" class="fixed inset-0 z-[60] bg-brandDark hidden flex flex-col justify-center px-6">
+        <div class="text-center space-y-6 max-w-sm mx-auto">
+            <div class="w-24 h-24 mx-auto rounded-full overflow-hidden border-2 border-pink-500 shadow-[0_0_30px_rgba(236,72,153,0.3)] bg-black flex items-center justify-center">
+                <img src="https://beautifiermontreal.ca/Beautifier%20transparent%20logo.png" alt="Logo" class="w-11/12 h-11/12 object-contain" onerror="this.src='https://placehold.co/200x200/161622/ec4899?text=B'">
+            </div>
+            
+            <div class="space-y-2">
+                <h2 class="text-2xl font-bold gradient-text">Welcome to Beautifier</h2>
+                <p class="text-sm text-gray-400">Tracy, your entire mobile styling business is now in one place.</p>
+            </div>
+
+            <div class="space-y-3 text-left">
+                <div class="bg-brandCard border border-purple-900/50 p-4 rounded-2xl flex items-start space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-pink-500/20 text-pink-400 flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fa-solid fa-calendar-check"></i></div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Book & Invoice</h4>
+                        <p class="text-xs text-gray-400">Add appointments, sync to your Apple Calendar for reminders, and easily text invoices.</p>
+                    </div>
+                </div>
+                <div class="bg-brandCard border border-purple-900/50 p-4 rounded-2xl flex items-start space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Quebec Taxes & Gas</h4>
+                        <p class="text-xs text-gray-400">Track your gas receipts and easily charge 5% GST & 9.975% QST with one tap.</p>
+                    </div>
+                </div>
+                <div class="bg-brandCard border border-purple-900/50 p-4 rounded-2xl flex items-start space-x-3">
+                    <div class="w-8 h-8 rounded-full bg-purple-500/20 text-purple-400 flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fa-solid fa-lock"></i></div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white">Secure Device Storage</h4>
+                        <p class="text-xs text-gray-400">Your client notes and data are permanently saved to the cloud securely on this device.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="closeOnboardingModal()" class="w-full gradient-bg text-white py-3.5 rounded-xl text-sm font-bold shadow-lg shadow-pink-900/30 animate-bounce mt-4">
+                Let's Get Started <i class="fa-solid fa-arrow-right ml-1"></i>
+            </button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, collection, onSnapshot, setDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'beautifier-local-dev';
+        const fbConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+        
+        // Expose global lists for UI rendering
+        window.clients = [];
+        window.appointments = [];
+        window.expenses = [];
+        window.currentInvoiceAppt = null;
+
+        let db = null;
+        let auth = null;
+        let userId = null;
+
+        async function initFirebase() {
+            if (!fbConfig) {
+                console.warn("No Firebase Config, running in Local Mode only.");
+                loadLocalFallback();
+                setupUI();
+                return;
+            }
+
+            try {
+                const app = initializeApp(fbConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                if (typeof __initial_auth_token !== 'undefined') {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+                
+                userId = auth.currentUser?.uid;
+                if (!userId) throw new Error("Auth failed");
+
+                document.getElementById('cloud-status').innerHTML = '<i class="fa-solid fa-cloud-check text-emerald-400"></i>';
+                document.getElementById('cloud-status').classList.remove('bg-yellow-900/40', 'border-yellow-700/50', 'text-yellow-500');
+                document.getElementById('cloud-status').classList.add('bg-emerald-900/40', 'border-emerald-700/50');
+                document.getElementById('cloud-status').title = "Cloud Synced";
+
+                subscribeToData();
+
+            } catch (err) {
+                console.error("Firebase Auth/Init Error:", err);
+                loadLocalFallback();
+                setupUI();
+            }
+        }
+
+        function getCollectionRef(colName) {
+            return collection(db, 'artifacts', appId, 'users', userId, colName);
+        }
+
+        function subscribeToData() {
+            if (!db) return;
+
+            // Subscribe Clients
+            onSnapshot(getCollectionRef('clients'), (snapshot) => {
+                window.clients = [];
+                snapshot.forEach(doc => window.clients.push({ id: doc.id, ...doc.data() }));
+                window.renderClients();
+                window.populateClientDropdown();
+            }, (err) => console.error(err));
+
+            // Subscribe Appointments
+            onSnapshot(getCollectionRef('appointments'), (snapshot) => {
+                window.appointments = [];
+                snapshot.forEach(doc => window.appointments.push({ id: doc.id, ...doc.data() }));
+                window.renderDashboard();
+                window.renderFinances();
+            }, (err) => console.error(err));
+
+            // Subscribe Expenses
+            onSnapshot(getCollectionRef('expenses'), (snapshot) => {
+                window.expenses = [];
+                snapshot.forEach(doc => window.expenses.push({ id: doc.id, ...doc.data() }));
+                window.renderFinances();
+            }, (err) => console.error(err));
+        }
+
+        function loadLocalFallback() {
+            window.clients = JSON.parse(localStorage.getItem('beautifier_clients') || '[]');
+            window.appointments = JSON.parse(localStorage.getItem('beautifier_appointments') || '[]');
+            window.expenses = JSON.parse(localStorage.getItem('beautifier_expenses') || '[]');
+        }
+
+        // Global functions for HTML access
+        window.saveData = async function(colName, item) {
+            if (db && userId) {
+                try {
+                    await setDoc(doc(getCollectionRef(colName), item.id), item);
+                } catch(e) { console.error("Save error", e); }
+            } else {
+                localStorage.setItem('beautifier_' + colName, JSON.stringify(window[colName]));
+            }
+        };
+
+        window.deleteData = async function(colName, id) {
+            if (db && userId) {
+                try {
+                    await deleteDoc(doc(getCollectionRef(colName), id));
+                } catch(e) { console.error("Delete error", e); }
+            } else {
+                window[colName] = window[colName].filter(x => x.id !== id);
+                localStorage.setItem('beautifier_' + colName, JSON.stringify(window[colName]));
+                if(colName==='clients') { window.renderClients(); window.populateClientDropdown(); }
+                if(colName==='appointments') { window.renderDashboard(); window.renderFinances(); }
+                if(colName==='expenses') window.renderFinances();
+            }
+        };
+
+        initFirebase();
+
+        // --- UI LOGIC ---
+        function setupUI() {
+            window.renderDashboard();
+            window.renderClients();
+            window.renderFinances();
+            window.populateClientDropdown();
+        }
+
+        function formatTime12(timeStr) {
+            if(!timeStr) return '';
+            const [h, m] = timeStr.split(':');
+            let hours = parseInt(h, 10);
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            return `${hours}:${m} ${ampm}`;
+        }
+
+        const zoneDefaults = { 'Roxboro': { fee: 10, kms: 8 }, 'West Island': { fee: 20, kms: 22 }, 'Montreal': { fee: 30, kms: 36 }, 'Custom': { fee: 15, kms: 15 } };
+        const serviceCosts = { 'Hair cut': 30, 'Blowdry & Styling': 30, 'Cut & blowdry': 55, 'Color': 60, 'Color, cut and blowdry': 115, 'Treatment': 20, 'Permanent': 100, "Men's cut": 30, 'Beard': 10 };
+
+        window.switchTab = function(tabId) {
+            ['dashboard', 'clients', 'finances', 'insights'].forEach(t => {
+                const el = document.getElementById(`tab-${t}`);
+                const btn = document.getElementById(`tab-btn-${t}`);
+                if (el) el.classList.add('hidden');
+                if (btn) { btn.classList.remove('text-pink-400'); btn.classList.add('text-gray-400'); }
+            });
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            document.getElementById(`tab-btn-${tabId}`).classList.remove('text-gray-400');
+            document.getElementById(`tab-btn-${tabId}`).classList.add('text-pink-400');
+        };
+
+        // Modal Open/Close Scripts
+        window.openAppointmentModal = () => { window.populateClientDropdown(); document.getElementById('appointment-form').reset(); document.getElementById('appt-id').value = ''; document.getElementById('appt-date').valueAsDate = new Date(); document.getElementById('appt-time').value = '10:00'; document.getElementById('appointment-modal').classList.remove('hidden'); window.onClientSelectChange(); };
+        window.closeAppointmentModal = () => document.getElementById('appointment-modal').classList.add('hidden');
+        window.openClientModal = () => { document.getElementById('client-form').reset(); document.getElementById('client-id').value = ''; document.getElementById('client-modal').classList.remove('hidden'); };
+        window.closeClientModal = () => document.getElementById('client-modal').classList.add('hidden');
+        window.openExpenseModal = () => { document.getElementById('expense-form').reset(); document.getElementById('expense-id').value = ''; document.getElementById('expense-date').valueAsDate = new Date(); document.getElementById('expense-modal').classList.remove('hidden'); };
+        window.closeExpenseModal = () => document.getElementById('expense-modal').classList.add('hidden');
+
+        // Onboarding Modal Logic
+        window.openOnboardingModal = () => document.getElementById('onboarding-modal').classList.remove('hidden');
+        window.closeOnboardingModal = () => {
+            document.getElementById('onboarding-modal').classList.add('hidden');
+            localStorage.setItem('beautifier_tour_completed', 'true');
+        };
+
+        function checkOnboarding() {
+            if (!localStorage.getItem('beautifier_tour_completed')) {
+                window.openOnboardingModal();
+            }
+        }
+
+        // Form Responders
+        window.onClientSelectChange = () => {
+            const sel = document.getElementById('appt-client-id');
+            const opt = sel.options[sel.selectedIndex];
+            if(opt) document.getElementById('appt-zone').value = opt.getAttribute('data-zone') || 'Roxboro';
+            window.onZoneChange();
+        };
+        window.onZoneChange = () => {
+            const z = document.getElementById('appt-zone').value;
+            if(zoneDefaults[z]) {
+                document.getElementById('appt-travel-fee').value = zoneDefaults[z].fee;
+                document.getElementById('appt-kms').value = zoneDefaults[z].kms;
+            }
+        };
+        window.onServiceChange = () => {
+            const s = document.getElementById('appt-service').value;
+            if(serviceCosts[s]) document.getElementById('appt-cost').value = serviceCosts[s];
+        };
+
+        // Render Dashboard
+        window.renderDashboard = function() {
+            const listEl = document.getElementById('appointments-list');
+            if(!listEl) return;
+            let rev = 0; let kms = 0;
+            
+            window.appointments.forEach(a => {
+                const sub = Number(a.cost) + Number(a.travelFee);
+                rev += sub + (a.gst || 0) + (a.qst || 0);
+                kms += Number(a.kms || 0);
+            });
+
+            document.getElementById('stat-revenue').innerText = `$${rev.toFixed(2)}`;
+            document.getElementById('stat-kms').innerText = `${kms} km`;
+
+            let html = '';
+            [...window.appointments].reverse().forEach(a => {
+                const total = Number(a.cost) + Number(a.travelFee) + (a.gst || 0) + (a.qst || 0);
+                const timeFormatted = a.time ? formatTime12(a.time) : '';
+                html += `
+                    <div class="bg-brandCard border border-purple-900/40 rounded-2xl p-4 shadow-lg space-y-2.5">
+                        <div class="flex justify-between items-start">
+                            <div><h3 class="text-xs font-bold text-white">${a.clientName}</h3><p class="text-[10px] text-pink-400">${a.service} • ${a.date} ${timeFormatted}</p></div>
+                            <span class="text-[10px] bg-purple-950 text-purple-300 px-2 py-0.5 rounded-full border border-purple-800/40">${a.zone}</span>
+                        </div>
+                        <div class="bg-black/30 rounded-xl p-2.5 text-[11px] flex justify-between items-center border border-purple-900/30">
+                            <div><span class="text-gray-400">Dist: ${a.kms} km | Tax: ${a.gst > 0 ? 'Yes' : 'No'}</span></div>
+                            <div class="text-right font-bold text-pink-400 text-sm">$${total.toFixed(2)}</div>
+                        </div>
+                        <div class="flex space-x-2 pt-1 border-t border-purple-900/30">
+                            <button onclick="addToCalendar('${a.id}')" class="flex-1 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-700/50 text-emerald-300 py-1.5 rounded-xl text-[11px] font-semibold"><i class="fa-solid fa-calendar-plus mr-1"></i>Cal</button>
+                            <button onclick="openInvoiceModal('${a.id}')" class="flex-1 bg-purple-950/80 hover:bg-purple-900 border border-purple-700/50 text-pink-300 py-1.5 rounded-xl text-[11px] font-semibold"><i class="fa-solid fa-file-invoice-dollar mr-1"></i>Invoice</button>
+                            <button onclick="deleteData('appointments', '${a.id}')" class="px-3 bg-black/40 text-gray-400 hover:text-red-400 py-1.5 rounded-xl text-[11px]"><i class="fa-solid fa-trash"></i></button>
+                        </div>
+                    </div>`;
+            });
+            listEl.innerHTML = html || '<p class="text-center text-xs text-gray-500 py-4">No appointments yet.</p>';
+            window.renderFinances();
+        };
+
+        // Render Finances
+        window.renderFinances = function() {
+            let gas = 0; let otherExp = 0; let expTotal = 0;
+            let rev = 0; let gst = 0; let qst = 0;
+
+            window.expenses.forEach(e => {
+                const amt = Number(e.amount);
+                expTotal += amt;
+                if(e.category === 'Gas & Fuel') gas += amt;
+                else otherExp += amt;
+            });
+
+            window.appointments.forEach(a => {
+                rev += Number(a.cost) + Number(a.travelFee);
+                gst += Number(a.gst || 0);
+                qst += Number(a.qst || 0);
+            });
+
+            const netProfit = rev - expTotal;
+            const profitEl = document.getElementById('stat-profit');
+            if(profitEl) {
+                profitEl.innerText = `$${netProfit.toFixed(2)}`;
+                profitEl.classList.remove('text-red-400', 'text-emerald-400');
+                if(netProfit < 0) profitEl.classList.add('text-red-400');
+                else profitEl.classList.add('text-emerald-400');
+            }
+
+            const gasEl = document.getElementById('finance-total-gas');
+            if(gasEl) {
+                gasEl.innerText = `$${gas.toFixed(2)}`;
+                document.getElementById('finance-total-other').innerText = `$${otherExp.toFixed(2)}`;
+                document.getElementById('finance-total-gst').innerText = `$${gst.toFixed(2)}`;
+                document.getElementById('finance-total-qst').innerText = `$${qst.toFixed(2)}`;
+                document.getElementById('finance-total-tax').innerText = `$${(gst + qst).toFixed(2)}`;
+
+                let expHtml = '';
+                [...window.expenses].reverse().forEach(e => {
+                    let icon = 'fa-file-invoice';
+                    let color = 'text-gray-400';
+                    if(e.category === 'Gas & Fuel') { icon = 'fa-gas-pump'; color = 'text-orange-400'; }
+                    if(e.category === 'Hair Supplies') { icon = 'fa-pump-soap'; color = 'text-pink-400'; }
+
+                    expHtml += `
+                        <div class="bg-black/40 border border-purple-900/30 rounded-xl p-3 flex justify-between items-center">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-8 h-8 rounded-full bg-brandCard border border-purple-900/50 flex items-center justify-center ${color}">
+                                    <i class="fa-solid ${icon} text-[10px]"></i>
+                                </div>
+                                <div>
+                                    <div class="text-[11px] font-bold text-white">${e.category}</div>
+                                    <div class="text-[9px] text-gray-500">${e.date} • ${e.notes}</div>
+                                </div>
+                            </div>
+                            <div class="flex flex-col items-end">
+                                <span class="text-xs font-bold text-red-300">-$${Number(e.amount).toFixed(2)}</span>
+                                <button onclick="deleteData('expenses', '${e.id}')" class="text-[9px] text-gray-500 hover:text-red-400 mt-1 uppercase">Delete</button>
+                            </div>
+                        </div>`;
+                });
+                document.getElementById('expenses-list').innerHTML = expHtml || '<p class="text-center text-[10px] text-gray-500 py-2">No expenses logged yet.</p>';
+            }
+        };
+
+        window.populateClientDropdown = function() {
+            const sel = document.getElementById('appt-client-id');
+            if(!sel) return;
+            sel.innerHTML = window.clients.map(c => `<option value="${c.id}" data-zone="${c.zone}">${c.name}</option>`).join('');
+        };
+        
+        window.renderClients = function() {
+            const listEl = document.getElementById('clients-list');
+            if(!listEl) return;
+            const q = (document.getElementById('client-search')?.value || '').toLowerCase();
+            const filt = window.clients.filter(c => c.name.toLowerCase().includes(q) || c.zone.toLowerCase().includes(q));
+            
+            let html = '';
+            filt.forEach(c => {
+                html += `
+                    <div class="bg-brandCard border border-purple-900/40 rounded-2xl p-4 shadow-lg">
+                        <div class="flex justify-between items-start mb-2">
+                            <div><h3 class="text-xs font-bold text-white">${c.name}</h3><p class="text-[10px] text-gray-400">${c.phone}</p></div>
+                            <span class="text-[10px] bg-purple-950 text-pink-300 px-2 py-0.5 rounded-full">${c.zone}</span>
+                        </div>
+                        ${c.notes ? `<p class="text-[10px] text-gray-400 italic bg-black/30 p-2 rounded-lg mb-2">${c.notes}</p>` : ''}
+                        <button onclick="scheduleForClient('${c.id}')" class="w-full bg-black/40 border border-purple-900/50 text-gray-300 py-1.5 rounded-xl text-[11px] font-semibold"><i class="fa-solid fa-calendar-plus mr-1"></i>Book</button>
+                    </div>`;
+            });
+            listEl.innerHTML = html || '<p class="text-center text-xs text-gray-500 py-4">No clients found.</p>';
+        };
+
+        window.scheduleForClient = (id) => {
+            window.openAppointmentModal();
+            document.getElementById('appt-client-id').value = id;
+            window.onClientSelectChange();
+        };
+
+        window.saveAppointment = (e) => {
+            e.preventDefault();
+            const sel = document.getElementById('appt-client-id');
+            const opt = sel.options[sel.selectedIndex];
+            const cost = parseFloat(document.getElementById('appt-cost').value) || 0;
+            const travel = parseFloat(document.getElementById('appt-travel-fee').value) || 0;
+            const chargeTax = document.getElementById('appt-charge-tax').checked;
+
+            let gst = 0; let qst = 0;
+            if(chargeTax) {
+                const sub = cost + travel;
+                gst = parseFloat((sub * 0.05).toFixed(2));
+                qst = parseFloat((sub * 0.09975).toFixed(2));
+            }
+
+            const apt = {
+                id: document.getElementById('appt-id').value || 'apt_' + Date.now(),
+                clientId: sel.value,
+                clientName: opt ? opt.text : 'Client',
+                date: document.getElementById('appt-date').value,
+                time: document.getElementById('appt-time').value,
+                zone: document.getElementById('appt-zone').value,
+                service: document.getElementById('appt-service').value,
+                cost, travelFee: travel, gst, qst,
+                kms: parseInt(document.getElementById('appt-kms').value) || 0,
+            };
+
+            window.appointments.push(apt);
+            window.saveData('appointments', apt);
+            window.closeAppointmentModal();
+            window.openInvoiceModal(apt.id);
+        };
+
+        window.saveExpense = (e) => {
+            e.preventDefault();
+            const exp = {
+                id: document.getElementById('expense-id').value || 'exp_' + Date.now(),
+                date: document.getElementById('expense-date').value,
+                amount: parseFloat(document.getElementById('expense-amount').value) || 0,
+                category: document.getElementById('expense-category').value,
+                notes: document.getElementById('expense-notes').value
+            };
+            window.expenses.push(exp);
+            window.saveData('expenses', exp);
+            window.closeExpenseModal();
+        };
+
+        window.saveClient = (e) => {
+            e.preventDefault();
+            const cli = {
+                id: document.getElementById('client-id').value || 'cli_' + Date.now(),
+                name: document.getElementById('client-name').value,
+                phone: document.getElementById('client-phone').value,
+                zone: document.getElementById('client-zone').value,
+                notes: document.getElementById('client-notes').value
+            };
+            window.clients.push(cli);
+            window.saveData('clients', cli);
+            window.closeClientModal();
+        };
+
+        window.openInvoiceModal = (id) => {
+            const a = window.appointments.find(x => x.id === id);
+            if(!a) return;
+            window.currentInvoiceAppt = a;
+            
+            document.getElementById('inv-date').innerText = a.date + (a.time ? ' @ ' + formatTime12(a.time) : '');
+            document.getElementById('inv-client-name').innerText = a.clientName;
+            document.getElementById('inv-zone').innerText = a.zone;
+            document.getElementById('inv-service-name').innerText = a.service;
+            document.getElementById('inv-service-price').innerText = `$${a.cost.toFixed(2)}`;
+            document.getElementById('inv-travel-fee').innerText = `$${a.travelFee.toFixed(2)}`;
+            
+            const total = a.cost + a.travelFee + (a.gst || 0) + (a.qst || 0);
+            
+            const taxSec = document.getElementById('inv-tax-section');
+            if(a.gst > 0 || a.qst > 0) {
+                taxSec.classList.remove('hidden');
+                document.getElementById('inv-subtotal').innerText = `$${(a.cost + a.travelFee).toFixed(2)}`;
+                document.getElementById('inv-gst').innerText = `$${a.gst.toFixed(2)}`;
+                document.getElementById('inv-qst').innerText = `$${a.qst.toFixed(2)}`;
+            } else {
+                taxSec.classList.add('hidden');
+            }
+            
+            document.getElementById('inv-total').innerText = `$${total.toFixed(2)}`;
+            document.getElementById('invoice-modal').classList.remove('hidden');
+        };
+        window.closeInvoiceModal = () => document.getElementById('invoice-modal').classList.add('hidden');
+
+        window.copyInvoiceSMS = () => {
+            const a = window.currentInvoiceAppt;
+            if(!a) return;
+            const sub = a.cost + a.travelFee;
+            const total = sub + (a.gst || 0) + (a.qst || 0);
+            
+            let txt = `Hello! Here is the invoice from Beautifier for ${a.clientName}:\n\n📅 Date: ${a.date} ${a.time ? '@ ' + formatTime12(a.time) : ''}\n💇‍♀️ Service: $${a.cost.toFixed(2)}\n🚗 Travel: $${a.travelFee.toFixed(2)}\n`;
+            if(a.gst > 0) txt += `\nSubtotal: $${sub.toFixed(2)}\nGST (5%): $${a.gst.toFixed(2)}\nQST (9.975%): $${a.qst.toFixed(2)}\n`;
+            txt += `-------------------\n💰 TOTAL: $${total.toFixed(2)}\n\nThank you! (Tel: 514-773-7814)`;
+
+            const ta = document.createElement("textarea"); ta.value = txt; document.body.appendChild(ta); ta.select();
+            try { document.execCommand('copy'); alert('Invoice copied! Paste it in Messages.'); } 
+            catch(e) { alert('Could not copy automatically.'); }
+            document.body.removeChild(ta);
+        };
+
+        window.addToCalendar = (id) => {
+            const a = window.appointments.find(x => x.id === id);
+            if (!a || !a.date || !a.time) {
+                alert("Please ensure the appointment has a valid date and time to add it to the calendar.");
+                return;
+            }
+
+            const startDate = new Date(`${a.date}T${a.time}`);
+            const endDate = new Date(startDate.getTime() + 90 * 60000);
+
+            const formatICSDate = (date) => date.toISOString().replace(/-|:|\.\d+/g, '');
+
+            const icsContent = [
+                'BEGIN:VCALENDAR',
+                'VERSION:2.0',
+                'PRODID:-//Beautifier//Tracy Hairstyling//EN',
+                'BEGIN:VEVENT',
+                `UID:${a.id}@beautifiermontreal.ca`,
+                `DTSTAMP:${formatICSDate(new Date())}`,
+                `DTSTART:${formatICSDate(startDate)}`,
+                `DTEND:${formatICSDate(endDate)}`,
+                `SUMMARY:Hair Appt: ${a.clientName} (${a.service})`,
+                `DESCRIPTION:Beautifier Appointment with ${a.clientName}. Service: ${a.service}. Zone: ${a.zone}`,
+                'END:VEVENT',
+                'END:VCALENDAR'
+            ].join('\r\n');
+
+            const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute('download', `Beautifier_${a.clientName.replace(/\s+/g, '_')}.ics`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+        
+        setTimeout(() => {
+            setupUI();
+            checkOnboarding();
+        }, 200);
+    </script>
+</body>
+</html>
