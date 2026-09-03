@@ -132,6 +132,7 @@
     </nav>
 
     <main class="flex-grow pt-28">
+        
         <section class="max-w-5xl mx-auto px-6 pt-12 pb-20 text-center">
             <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-yellow-100 text-yellow-800 mb-8 font-bold shadow-sm border border-yellow-200">
                 <i class="fas fa-truck text-jgold"></i>
@@ -303,55 +304,66 @@
             </div>
         </section>
 
-        <section class="max-w-7xl mx-auto px-6 pb-20">
-                    <input type="hidden" name="access_key" value="291222fd-103b-44ce-aef4-a1b1b28d9f82">
-                    <input type="hidden" name="subject" value="New Handyman Request (Montreal/Laval)">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        <section id="contact" class="bg-white py-24 border-t border-gray-200">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-black text-gray-900 mb-4">Request a Quote or Service</h2>
+                    <p class="text-xl text-gray-600 font-medium">Please fill out the form below detailing what you need done. I'll get back to you promptly.</p>
+                </div>
 
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Your Name</label>
-                            <input type="text" name="name" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all">
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Phone Number</label>
-                            <input type="tel" name="phone" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all">
-                        </div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Location</label>
-                            <select name="location" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all cursor-pointer">
-                                <option value="Montreal (Central/East)">Montreal (Central/East)</option>
-                                <option value="West Island">West Island</option>
-                                <option value="Laval">Laval</option>
-                                <option value="Other">Other Surrounding Area</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block text-sm font-bold text-gray-700 mb-2">Type of Job</label>
-                            <select name="service" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all cursor-pointer">
-                                <option value="Elderly Assistance / Companionship">Elderly Assistance (Companionship, Cooking, Care)</option>
-                                <option value="Mobile Handyman / Repairs">Mobile Handyman / Repairs / Mounting</option>
-                                <option value="Heavy Lifting / Rearranging">Heavy Lifting (Rearranging, Stairs, Moving)</option>
-                                <option value="Furniture Assembly">Furniture Assembly (IKEA, etc.)</option>
-                                <option value="Throwing Out Heavy Items / Junk">Throwing Out Heavy Items / Junk Removal</option>
-                                <option value="Odd Jobs / Property Maint.">Odd Jobs / Property Maintenance</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-                    </div>
+                <div class="bg-gray-50 border border-gray-200 p-8 md:p-12 rounded-[2rem] shadow-xl">
+                    <!-- The Functional Form -->
+                    <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+                        <!-- Required Web3Forms Hidden Inputs -->
+                        <input type="hidden" name="access_key" value="2264e763-d56c-4320-aed3-8cb2fab79a54">
+                        <input type="hidden" name="subject" value="New Handyman Request (Montreal/Laval)">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                    <div>
-                        <label class="block text-sm font-bold text-gray-700 mb-2">Tell me about the project</label>
-                        <textarea name="message" rows="4" required placeholder="What needs to be done? If it's assembly, what items? Do you have a timeline?" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all resize-none"></textarea>
-                    </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Your Name</label>
+                                <input type="text" name="name" required class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" name="phone" required class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all">
+                            </div>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Location</label>
+                                <select name="location" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all cursor-pointer">
+                                    <option value="Montreal (Central/East)">Montreal (Central/East)</option>
+                                    <option value="West Island">West Island</option>
+                                    <option value="Laval">Laval</option>
+                                    <option value="Other">Other Surrounding Area</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Type of Job</label>
+                                <select name="service" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all cursor-pointer">
+                                    <option value="Elderly Assistance / Companionship">Elderly Assistance (Companionship, Cooking, Care)</option>
+                                    <option value="Mobile Handyman / Repairs">Mobile Handyman / Repairs / Mounting</option>
+                                    <option value="Heavy Lifting / Rearranging">Heavy Lifting (Rearranging, Stairs, Moving)</option>
+                                    <option value="Furniture Assembly">Furniture Assembly (IKEA, etc.)</option>
+                                    <option value="Throwing Out Heavy Items / Junk">Throwing Out Heavy Items / Junk Removal</option>
+                                    <option value="Odd Jobs / Property Maint.">Odd Jobs / Property Maintenance</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                        </div>
 
-                    <button type="submit" class="w-full bg-gray-900 text-white text-xl font-black px-10 py-4 rounded-xl shadow-lg hover:bg-jgreen transition-colors flex items-center justify-center gap-2">
-                        Send Request <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Tell me about the project</label>
+                            <textarea name="message" rows="4" required placeholder="What needs to be done? If it's assembly, what items? Do you have a timeline?" class="w-full bg-white border border-gray-300 rounded-xl px-4 py-3 text-gray-900 focus:outline-none focus:border-jgreen focus:ring-1 focus:ring-jgreen transition-all resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-gray-900 text-white text-xl font-black px-10 py-4 rounded-xl shadow-lg hover:bg-jgreen transition-colors flex items-center justify-center gap-2">
+                            Send Request <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
